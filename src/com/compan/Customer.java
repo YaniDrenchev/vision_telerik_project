@@ -2,8 +2,10 @@ package com.compan;
 
 
 public class Customer extends Person {
-    public Customer(String name, Gender gender) {
+    private String username;
+    public Customer(String name, Gender gender, String username) {
         super(name, gender);
+        this.username = username;
     }
     public static void order(Item item){
         Weiter.takeOrder(item);
@@ -13,6 +15,7 @@ public class Customer extends Person {
     }
     public static void pay(){
         Order.pay();
+
     }
         chek the time and if it is in the workingHours return TRUE
     public static void checkTime(Restaurant rest){
