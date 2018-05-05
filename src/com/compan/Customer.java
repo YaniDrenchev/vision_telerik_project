@@ -1,33 +1,58 @@
 package com.compan;
 
+import domain.Order;
+import domain.Restaurant;
 
 public class Customer extends Person {
-    private String username;
+    private String username;  //unique
+
     public Customer(String name, Gender gender, String username) {
         super(name, gender);
         this.username = username;
     }
-    public static void order(Item item){
+    public  void order1(Item item){
         Weiter.takeOrder(item);
     }
-    public static void order(Item item){
+
+
+    public void order2(Item item){
         Order.addItem(item);
     }
-    public static void pay(){
-        Order.pay();
-
+    public  void pay(){
+        Order.finalize();
     }
-       // chek the time and if it is in the workingHours return TRUE
-    public static void checkTime(Restaurant rest){
+
+
+    public  void checkTime(Restaurant rest){
         rest.getWorkingHours();
     }
-    public static void evaluate(Restaurant rest, double rank){
-        rest.evaluate(rank);
+
+
+
+    public void evaluate(Restaurant rest, double rating){
+        if (Order.getStatus() == Status.FINISHED){
+            rest.getEvaluationFromUser(rating);
+        }else{
+            //Open a window and tell the client that it is not possible to evaluate
+            System.out.println("You dint't visit that rest!!! Stop cheating");
+        }
     }
-    public static void writeAComment(Restaurant rest, String comment){
-        rest.setComment(comment);
+
+
+    public  void writeAComment(Restaurant rest, String comment){
+        rest.getCommentFromCustomer(comment, this);
+
     }
-    public static void checkRank(Restaurant rest){
-        rest.getRank();
+
+    public static void checkRating(Restaurant rest){
+        rest.getRating();
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }
