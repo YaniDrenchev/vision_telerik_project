@@ -1,6 +1,8 @@
 package domain;
 
-public class Manager {
+import java.io.Serializable;
+
+public class Manager implements Serializable {
 	private String firstName;
 	private String familyName;
 	
@@ -9,8 +11,8 @@ public class Manager {
 		this.familyName = familyName;
 	}
 
-	public void createRestaurant(Restaurant restaurant, City city){
-		System.out.println("Restaurant " + restaurant.getName() + " was created in " + city.getName());
+	public void createRestaurant(Restaurant restaurant){
+		System.out.println("Restaurant " + restaurant.getName() + " was created in " );
 	}
 
 	public String getFirstName() {

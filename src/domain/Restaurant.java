@@ -1,14 +1,12 @@
 package domain;
 
-import domain.dao.IAddable;
-import domain.dao.ISearchable;
 
-public class Restaurant implements ISearchable, IAddable, Comparable<Restaurant>  {
-	//private RestaurantDAO dao ; // ??? do i need 
+public class Restaurant implements ISearchable, IAddable, Comparable<Restaurant> {
 	private static int counter; 	
 	private int id; 
 	private String name;
-	private Type type;  
+	private Type type; 
+	private WorkingStatus workingStatus; 
 	private String webSite; 
 	private String phone; 
 	private String description; 
@@ -16,6 +14,9 @@ public class Restaurant implements ISearchable, IAddable, Comparable<Restaurant>
 	private double rating ; 
 	private String address; 
 	private Menu menu; 
+	private Order order; 
+	private OrderManager orderManager; 
+	//private OrdersArchive ordersArchive; 
 	
 	public Restaurant() {
 		super();
@@ -29,9 +30,21 @@ public class Restaurant implements ISearchable, IAddable, Comparable<Restaurant>
 		this.phone = phone;
 		this.description = description;
 		this.address = address; 
-		this.rating = rating ; // range: 0 to 10
+		this.rating = rating ; // range: 0 to 10 ?? Exception ??
 		this.id = ++counter + 1000; 
+		this.workingStatus = WorkingStatus.OPEN; 
+		this.orderManager = new OrderManager(); 
 	}
+	
+
+	public Order getOrder() {
+		return order;
+	}
+
+	public void setOrder(Order order) {
+		this.order = order;
+	}
+
 
 	public int getId() {
 		return id;
@@ -112,7 +125,16 @@ public class Restaurant implements ISearchable, IAddable, Comparable<Restaurant>
 	public void setMenu(Menu menu) {
 		this.menu = menu;
 	}
-
+	
+	//TODO change the id
+	public Order createOrder(){
+		return new Order(id, this, manager); 
+	}
+	
+	public OrderManager getOrderManager() {
+		return orderManager;
+	}
+	
 	@Override
 	public int compareTo(Restaurant restaurant) {
 		if(rating == restaurant.rating){

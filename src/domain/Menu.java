@@ -2,8 +2,6 @@ package domain;
 
 import java.util.ArrayList;
 
-import domain.dao.IAddable;
-import domain.dao.ICRUD;
 import domain.food.Item;
 
 public class Menu implements ICRUD {
@@ -18,7 +16,7 @@ public class Menu implements ICRUD {
 	@Override
 	public void displayAll() {
 		for (Item item : menu) {
-			System.out.println( item.getId()  + "  " +  item.getName() + " " + item.getPrice() + " " + currency ) ;
+			System.out.println( item.getName() + " " + item.getPrice() + " " + currency ) ;
 		}
 	}
 
@@ -29,13 +27,19 @@ public class Menu implements ICRUD {
 
 	@Override
 	public void deleteFromList(int id) {
-		int indexToDelete = 0;  
-		for (Item item : menu){
-			if( item.getId() == id ){
-				System.out.println(item.getName());
-				indexToDelete =  menu.indexOf(item); 
-			} 
-		}
-		menu.remove(indexToDelete);
+		// TODO Auto-generated method stub
+		
 	}
+
+//	@Override
+//	public void deleteFromList(int id) {
+//		int indexToDelete = 0;  
+//		for (Item item : menu){
+//			if( item.getId() == id ){
+//				System.out.println(item.getName());
+//				indexToDelete =  menu.indexOf(item); 
+//			} 
+//		}
+//		menu.remove(indexToDelete);
+//	}
 }

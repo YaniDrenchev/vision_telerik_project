@@ -1,4 +1,4 @@
-package domain.dao;
+package domain;
 
 import domain.Index;
 import domain.Restaurant;

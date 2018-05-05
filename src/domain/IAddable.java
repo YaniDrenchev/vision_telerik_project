@@ -1,4 +1,4 @@
-package domain.dao;
+package domain;
 
 
 public interface IAddable {

@@ -3,10 +3,6 @@ package domain;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import domain.dao.IAddable;
-import domain.dao.ICRUD;
-import domain.dao.IFindable;
-import domain.dao.ISearchable;
 
 public class Index  implements ICRUD, IFindable{
 	private static Index INSTANCE = null ;
@@ -88,7 +84,7 @@ public class Index  implements ICRUD, IFindable{
 	
 	public ArrayList<Restaurant> sortByRating(){
 		ArrayList<Restaurant> toBeSorted = this.restaurants; 
-		Collections.sort( toBeSorted  );
+		Collections.sort(toBeSorted);
 		return toBeSorted ; 
 	}
 }

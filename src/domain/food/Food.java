@@ -6,5 +6,4 @@ public class Food extends Item {
 		super(name, price);
 	}
 	
-	
 }
