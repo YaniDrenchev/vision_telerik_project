@@ -3,15 +3,11 @@ package domain;
 import java.util.ArrayList;
 import java.util.Collections;
 
-
-public class Index  implements ICRUD, IFindable{
+public class Index  implements ICRUD, IFind{
 	private static Index INSTANCE = null ;
 	private ArrayList<Restaurant> restaurants ; 
 	
-	//singleton design pattern - we need only one index for the whole app
 	private Index(){
-		//super.list = new ArrayList<>();
-		//this.restaurants = (ArrayList<Restaurant>) super.list;
 		this.restaurants = new ArrayList<>(); 
 	}
 	
@@ -32,7 +28,7 @@ public class Index  implements ICRUD, IFindable{
 		int indexToDelete = 0;  
 		for (Restaurant rest : restaurants){
 			if( rest.getId() == id ){
-				System.out.println(rest.getName());
+				//System.out.println(rest.getName());
 				indexToDelete =  restaurants.indexOf(rest); 
 			} 
 		}
@@ -85,6 +81,7 @@ public class Index  implements ICRUD, IFindable{
 	public ArrayList<Restaurant> sortByRating(){
 		ArrayList<Restaurant> toBeSorted = this.restaurants; 
 		Collections.sort(toBeSorted);
+		
 		return toBeSorted ; 
 	}
 }

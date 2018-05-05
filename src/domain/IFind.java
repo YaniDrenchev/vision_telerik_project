@@ -2,14 +2,11 @@ package domain;
 
 import java.util.ArrayList;
 
-import domain.Restaurant;
-import domain.Type;
-
-public interface IFindable {
+public interface IFind extends IFindByName {
 		
 		public ISearchable findById(int id); 
 		
-		public ISearchable findByName(String name); 
+		//public ISearchable findByName(String name); 
 		
 		public ArrayList<ISearchable> findByType(Type type); 
 }

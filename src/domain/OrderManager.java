@@ -14,7 +14,7 @@ public class OrderManager  {
 	}
 	
 	public void saveToArchive(Order order) {
-		archive.addToList(order);;  
+		archive.addToList(order);
 	}
 	
 	public Order findByIdFromArchive(int id) {

@@ -3,7 +3,6 @@ package domain;
 import java.io.File;
 import java.util.ArrayList;
 
-
 public class OrdersArchive implements ICRUD {
 	private File file; 
 	private ArrayList<IAddable> archive ;
@@ -38,10 +37,9 @@ public class OrdersArchive implements ICRUD {
 	@Override
 	public void deleteFromList(int id) {
 		// TODO Auto-generated method stub
-		
 	}
 	
-
+//TODO use in the ReportsCreator
 //	public void write(Order order) throws IOException {
 //		//create a file 
 //		FileOutputStream f = new FileOutputStream(file);
