@@ -1,8 +1,6 @@
 package domain;
 
-import java.io.Serializable;
-import java.security.Timestamp;
-
+import com.compan.Customer;
 
 public class Order implements IAddable {
 	
@@ -17,7 +15,7 @@ public class Order implements IAddable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Order(long id, Restaurant restaurant, Manager manager) {
+	public Order(long id, Restaurant restaurant, Manager manager, Customer customer){
 		super();
 		this.id = id;
 		this.restaurant = restaurant;

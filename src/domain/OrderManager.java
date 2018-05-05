@@ -5,7 +5,7 @@ import java.util.List;
 
 public class OrderManager  {
 	private OrdersArchive archive;  // to be filled from the archive 
-	private OrdersReporter report;  //prints a report in a given file type  
+	private OrdersReportsCreator report;  //prints a report in a given file type  
 	private List<Order> orders; 
 	
 	public OrderManager() {

@@ -128,7 +128,7 @@ public class Restaurant implements ISearchable, IAddable, Comparable<Restaurant>
 	
 	//TODO change the id
 	public Order createOrder(){
-		return new Order(id, this, manager); 
+		return new Order(id, this, manager, customer); 
 	}
 	
 	public OrderManager getOrderManager() {

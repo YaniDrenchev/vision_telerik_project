@@ -1,27 +1,32 @@
 package com.compan;
-import domain;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
 public class Order implements Serializable {
-    private Date date;
+    private static int counter; 	
+	private long id;
+	private Date date;
     private static ArrayList<Item> items = new ArrayList(); //all items orderd
     private int sum;
-    private long ID = 1000; //specific ID in order to surch for the orders by ID
-    static String restaurantName;
-    static String managerName;
-    String address;
-    private Restaurant rest;
-    private Status status;
+    //private long ID = 1000; //specific ID in order to surch for the orders by ID
+    private String restaurantName;
+    private String managerName;
+    private String address;
+    private Restaurant restaurant;
+    private Manager manager ; 
+    // private Status status;   => add status as an eum 
 //constructor
-    public Order(Restaurant rest, Manager man){
-        this.restaurantName = rest.getName;
-        this.managerName = man.getName();
-        this.address = rest.getAddress;
+    public Order(Restaurant restaurant, Manager manager){
+        this.restaurant = restaurant ;
+        this.manager = manager; 
+    	this.restaurantName = restaurant.getName();
+        this.managerName = restaurant.getName();
+        this.address = restaurant.getAddress();
         items = new ArrayList<Item>();
         sum = 0;
-        this ID ++;
-        this rest = rest;
+        this.id = ++counter + 1000; 
     }
     //paying the bill and adding the current Order to the current Rest order manager
     public static void pay(){

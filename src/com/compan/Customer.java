@@ -17,7 +17,7 @@ public class Customer extends Person {
         Order.pay();
 
     }
-        chek the time and if it is in the workingHours return TRUE
+       // chek the time and if it is in the workingHours return TRUE
     public static void checkTime(Restaurant rest){
         rest.getWorkingHours();
     }
