@@ -1,20 +1,11 @@
-public abstract class Drink extends Item {
+public class Drink extends Item {
   
-  private Integer measure;
+  Boolean alcohol;
+  Boolean freeSugar;
   
-  public Drink() {
-  
-  }
-  
-  public Drink(Integer measure) {
-    this.measure = measure;
-  }
-  
-  public Integer getMeasure() {
-    return measure;
-  }
-  
-  public void setMeasure(Integer measure) {
-    this.measure = measure;
+  public Drink(String name, Double price, Double measure, String describe, Boolean alcohol, Boolean freeSugar) {
+    super(name, price, measure, describe);
+    this.alcohol = alcohol;
+    this.freeSugar = freeSugar;
   }
 }
