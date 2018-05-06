@@ -1,33 +1,35 @@
 package com.compan;
 
-import domain.Order;
 import domain.Restaurant;
 
 public class Customer extends Person {
-    private String username;  //unique
+    private String username;
 
     public Customer(String name, Gender gender, String username) {
         super(name, gender);
-        this.username = username;
+        if (username.length() > 12 || username.length() < 3){
+            System.out.println("Invalid username");
+            // Ivaylo will show a window "Invalid username"
+        }else{
+            this.username = username;
+        }
     }
-    public  void order1(Item item){
+    public void order1(Item item){
         Weiter.takeOrder(item);
     }
-
 
     public void order2(Item item){
         Order.addItem(item);
     }
-    public  void pay(){
-        Order.finalize();
-    }
 
+    /
+    public void pay(Order order){
+        order.finalize();
+    }
 
     public  void checkTime(Restaurant rest){
         rest.getWorkingHours();
     }
-
-
 
     public void evaluate(Restaurant rest, double rating){
         if (Order.getStatus() == Status.FINISHED){
@@ -38,13 +40,12 @@ public class Customer extends Person {
         }
     }
 
-
     public  void writeAComment(Restaurant rest, String comment){
         rest.getCommentFromCustomer(comment, this);
-
     }
 
-    public static void checkRating(Restaurant rest){
+
+    public void checkRating(Restaurant rest){
         rest.getRating();
     }
 

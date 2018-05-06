@@ -4,7 +4,11 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Order implements Serializable {
+import domain.IAddable;
+import domain.Restaurant;
+
+//TODO : add IAddable
+public class Order implements Serializable, IAddable {
     private static int counter;
     private long id;
     private Date date;
@@ -38,8 +42,7 @@ public class Order implements Serializable {
             System.out.print(items.get(i).getPrice());
         }
         status = Status.FINISHED;// Complete order
-        rest.OrderManager.saveOrder;
-        rest.addOrder(this);// adding the current order to the ArrayList Orders
+        restaurant.getOrderManager().saveOrder(this);
     }
 
     public static Status getStatus() {
