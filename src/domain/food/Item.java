@@ -1,26 +1,26 @@
-public abstract class Item {
+public abstract class Item implements IAddable {
   
   private Integer id;
   private static Integer idCounter = 1;
   private String name;
   private Double price;
   private Double content;
-  private String describe;
+  private String description;
   
   public Item() {
     id = idCounter++;
     name = getName();
     price = getPrice();
     content = getContent();
-    describe = getDescribe();
+    description = getDescription();
   }
   
-  public Item(String name, Double price, Double content, String describe) {
+  public Item(String name, Double price, Double content, String description) {
     id = idCounter++;
     this.name = name;
     this.price = price;
     this.content = content;
-    this.describe = describe;
+    this.description = description;
   }
   
   public Integer getId() {
@@ -39,8 +39,8 @@ public abstract class Item {
     return content;
   }
   
-  public String getDescribe() {
-    return describe;
+  public String getDescription() {
+    return description;
   }
   
   public void setName(String name) {
@@ -55,7 +55,7 @@ public abstract class Item {
     this.content = content;
   }
   
-  public void setDescribe(String describe) {
-    this.describe = describe;
+  public void setDescription(String description) {
+    this.description = description;
   }
 }
