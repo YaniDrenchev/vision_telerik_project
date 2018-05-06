@@ -7,7 +7,7 @@ public class Restaurant implements ISearchable, IAddable, Comparable<Restaurant>
 	private int id; 
 	private String name;
 	private Type type; 
-	private WorkingStatus workingStatus; 
+	private WorkingStatus workingStatus;   //TODO 
 	private String workingHours; 
 	private String webSite; 
 	private String phone; 
@@ -16,7 +16,7 @@ public class Restaurant implements ISearchable, IAddable, Comparable<Restaurant>
 	private Double rating ; 
 	private String address; 
 	private Menu menu; 
-	private Order order; 
+	//private Order order; 
 	private OrderManager orderManager; 
 	private RatingsManager ratingsManager; 
 	private CommentsManager commentsManager; 
@@ -36,6 +36,7 @@ public class Restaurant implements ISearchable, IAddable, Comparable<Restaurant>
 		this.address = address; 
 		this.id = ++counter + 100; 
 		this.workingStatus = WorkingStatus.OPEN; 
+		this.menu = new Menu(); 
 		this.orderManager = new OrderManager();
 		this.commentsManager = new CommentsManager(); 
 		this.ratingsManager = new RatingsManager();
@@ -55,17 +56,18 @@ public class Restaurant implements ISearchable, IAddable, Comparable<Restaurant>
 		this.id = ++counter + 1000; 
 		this.workingStatus = WorkingStatus.OPEN; 
 		this.commentsManager = new CommentsManager(); 
+		this.menu = new Menu(); 
 		this.orderManager = new OrderManager(); 
 		this.ratingsManager = new RatingsManager(); 
 	}
 	
-	public Order getOrder() {
-		return order;
-	}
-
-	public void setOrder(Order order) {
-		this.order = order;
-	}
+//	public Order getOrder() {
+//		return order;
+//	}
+//
+//	public void setOrder(Order order) {
+//		this.order = order;
+//	}
 
 	public int getId() {
 		return id;
@@ -133,10 +135,6 @@ public class Restaurant implements ISearchable, IAddable, Comparable<Restaurant>
 
 	public Menu getMenu() {
 		return menu;
-	}
-
-	public void setMenu(Menu menu) {
-		this.menu = menu;
 	}
 	
 	//TODO change the id

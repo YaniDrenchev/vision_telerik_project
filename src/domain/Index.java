@@ -5,6 +5,7 @@ import java.util.Collections;
 
 public class Index  implements ICRUD, IFind{
 	private static Index INSTANCE = null ;
+	//TODO Fix this make it with ISearchable
 	private ArrayList<Restaurant> restaurants ; 
 	
 	private Index(){
@@ -76,7 +77,6 @@ public class Index  implements ICRUD, IFind{
 		}
 		return found; 
 	}
-	
 	
 	public ArrayList<Restaurant> sortByRating(){
 		ArrayList<Restaurant> toBeSorted = this.restaurants; 

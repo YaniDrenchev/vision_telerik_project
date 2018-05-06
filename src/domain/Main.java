@@ -5,8 +5,9 @@ import java.util.ArrayList;
 import com.compan.Customer;
 import com.compan.Gender;
 
-import domain.food.Food;
-import domain.food.Item;
+import domain.foodIvelin.Drink;
+import domain.foodIvelin.Food;
+import domain.foodIvelin.Item;
 
 public class Main {
 
@@ -20,7 +21,6 @@ public class Main {
 		Restaurant rest2 = new Restaurant("Дон Вито–2", Type.PIZZA, "http://pizzadonvito.com/bg/", "0889934934", "ул. Христо Ботев 43, София",   "Пица за душата от Италия"); 
 		Restaurant rest3 = new Restaurant("Casa Mia", Type.PIZZA, "http://casamia.com/bg/", "08834344934","бл 153, Младост 3, София",  "Твоята пицария в Младост " ); 
 		Restaurant rest4 = new Restaurant("Die Alte Lampe", Type.PUB, "http://alteLampe.com/bg/", "0883435934", "бул Дондуков 42, София",  "Студена бира в гореща вечер");
-		//Restaurant rest5 = new Restaurant(name, type, webSite, phone, address, description, rating)
 		Restaurant rest5 = new Restaurant("Test", Type.CHINESE, "tets.bg", "3434523", "Luli 10", "Test hrana za vkushti"); 
 		Restaurant rest10 = new Restaurant("Casa de Lava", Type.PIZZA, "http://pizzadonvito.com/", "0889934934", "бул. Васил Левски, 34, София","Пица за душата от Италия", 4.5); 
 		index.addToList(rest1);	
@@ -28,6 +28,7 @@ public class Main {
 		index.addToList(rest3);
 		index.addToList(rest4);
 		index.addToList(rest5);
+		index.addToList(rest10);
 		index.displayAll();
 		System.out.println("Casa de Lava: " + rest10.getRating());
 		//
@@ -77,7 +78,11 @@ public class Main {
 		}
 		
 		//sort by rating
-		System.out.println("---- FIX:  ---- ");
+		System.out.println();
+		System.out.println("---- ********  ---- ");
+		System.out.println("----   ****  ---- ");
+		System.out.println();
+		
 		System.out.println("---- Sorted by rating:  ---- ");
 		ArrayList<Restaurant> sortedByRating = index.sortByRating(); 
 		for (Restaurant rest : sortedByRating) {
@@ -92,22 +97,6 @@ public class Main {
 		index.deleteFromList(101);
 		System.out.println("----After deletion of 101:  ---- ");
 		index.displayAll(); 
-		
-		// add food to Menu
-		Item bread = new Food("Bread", 4.50);
-		Item wine = new Food("Wine", 12.40);
-		Menu menu = new Menu();
-		menu.addToList(bread);
-		menu.addToList(wine);
-		rest1.setMenu(menu);
-		Menu menuRest1 = rest1.getMenu(); 
-		System.out.println("----Show the menu of : " + rest1.getName() +  " ---- ");
-		menuRest1.displayAll();
-		
-		//delete by id from menu 
-		menuRest1.deleteFromList(2);
-		System.out.println("--------- After deleting 2 from menu  -----------");
-		menuRest1.displayAll();
 		
 		//order test
 		//Order order1 = new Order(id, restaurant, manager); 
@@ -136,5 +125,60 @@ public class Main {
 		for (Restaurant rest : sortedByRating2) {
 			System.out.println( rest.getRating() + " " +  rest.getName() );
 		}
+		
+		//Food 
+		System.out.println();
+		System.out.println("------   MENU -------");
+		
+		//Menu : 
+		Item mandja = new Food("mandja", 21.99, 600.00, "peppers and tomatoes", true);
+		Item salad = new Food("Salad", 21.99, 600.00, "Fresh Salad from the field", true);
+		Item tarator = new Food("Tarator", 21.99, 600.00, "Fresh Salad from the field", true);
+	    Item water = new Drink("Gorna Bania",0.99,1500.00,"Ph 9.65, Mineral Water From Gorna Bania", false, false);
+	    Item vodka = new Drink("Vodka Savoy",2.99,1500.00,"Ph 9.65, Fire Water From The Deep Balkan", false, false);
+	    Item vodka2 = new Drink("Vodka Smirnoff",2.99,1500.00,"Ph 9.65, Fire Water From Mother Russia", false, false);
+	    
+	    System.out.println("Name: " + mandja.getName() + " \nDescribe: " + mandja.getDescribe() + " id:" + mandja.getId());
+	    System.out.println("Name: " + water.getName() + " \nDescribe: " + water.getDescribe() + " id:" + water.getId());
+	    
+	 // add food to Menu
+		Menu menu = new Menu();
+		menu.addToList(mandja);
+		menu.addToList(water);
+		menu.addToList(vodka);
+		rest1.getMenu().addToList(mandja);  
+		rest1.getMenu().addToList(water);  
+		rest1.getMenu().addToList(vodka);  
+		rest1.getMenu().addToList(vodka2);  
+		rest1.getMenu().addToList(salad);  
+		rest1.getMenu().addToList(tarator);  
+		//Menu menuRest1 = rest1.getMenu(); 
+		System.out.println("----Show the menu of : " + rest1.getName() +  " ---- ");
+		rest1.getMenu().displayAll();
+		System.out.println();
+		System.out.println("------Delete by Id : 1 --------");
+		rest1.getMenu().deleteFromList(1);;
+		
+		rest1.getMenu().displayAll();
+		System.out.println("----Show the menu of to customers: " + rest1.getName() +  " ---- ");
+		rest1.getMenu().displayAllToCustomers();
+		
+		System.out.println("------Find by Id : 3 --------");
+		Item vodkaFound =  (Item) rest1.getMenu().findById(3); 
+		System.out.println(vodkaFound.getName());
+		// !!!
+		System.out.println("----- Find by word ------");
+		ArrayList<Item> allVodkas = rest1.getMenu().findByWord("Savoy"); 
+		for (Item v:  allVodkas) {
+			System.out.println(v.getName());
+		}
+		// !!!
+		
+		System.out.println("----- Find vegeterian ------");
+		ArrayList<Food> vegeterianFood = rest1.getMenu().findVegetarianOnly() ;  
+		for (Food v:  vegeterianFood) {
+			System.out.println(v.getName());
+		}
+	    
 	}
 }
