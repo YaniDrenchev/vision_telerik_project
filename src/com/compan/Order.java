@@ -6,6 +6,7 @@ import java.util.Date;
 
 import domain.IAddable;
 import domain.Restaurant;
+import domain.foodIvelin.Item;
 
 //TODO : add IAddable
 public class Order implements Serializable, IAddable {

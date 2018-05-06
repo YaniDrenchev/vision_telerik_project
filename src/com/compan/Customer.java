@@ -1,6 +1,7 @@
 package com.compan;
 
 import domain.Restaurant;
+import domain.foodIvelin.Item;
 
 public class Customer extends Person {
     private String username;
