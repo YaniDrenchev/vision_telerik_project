@@ -23,7 +23,6 @@ public class Customer extends Person {
         Order.addItem(item);
     }
 
-    /
     public void pay(Order order){
         order.finalize();
     }
@@ -41,7 +40,7 @@ public class Customer extends Person {
         }
     }
 
-    public  void writeAComment(Restaurant rest, String comment){
+    public void writeAComment(Restaurant rest, String comment){
         rest.getCommentFromCustomer(comment, this);
     }
 

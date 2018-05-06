@@ -1,6 +1,6 @@
 package com.compan;
 
-public class Manager extends Person {
+public class Manager extends Person implements Serializable {
 
     public Manager(String name, Gender gender) {
         super(name, gender);

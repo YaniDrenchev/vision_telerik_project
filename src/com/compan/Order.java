@@ -8,14 +8,13 @@ import domain.IAddable;
 import domain.Restaurant;
 import domain.foodIvelin.Item;
 
-//TODO : add IAddable
 public class Order implements Serializable, IAddable {
     private static int counter;
     private long id;
     private Date date;
     private static ArrayList<Item> items = new ArrayList(); //all items orderd
     private int sum;
-    //private long ID = 1000; //specific ID in order to surch for the orders by ID
+
     private String restaurantName;
     private String managerName;
     private String address;

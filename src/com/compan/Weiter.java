@@ -12,7 +12,7 @@ public class Weiter extends Person {
     }
     public static void giveOrderToChef(Item item){
         Chef.takeOrder(item);
-        System.out  .println("The chef took the order");
+        System.out.println("The chef took the order");
     }
     public static void giveItem(Item item){
 
