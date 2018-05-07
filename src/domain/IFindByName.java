@@ -2,6 +2,6 @@ package domain;
 
 public interface IFindByName {
 	
-	public ISearchable findByName(String name) throws Exception;
+	public ISearchable findByName(String name);
 	
 }

@@ -321,9 +321,15 @@ public class Main {
 		rest4.getMenu().addToList(juice);  
 		rest4.getMenu().addToList(rabit);  
 		
+		//Show restaurants by rating  : 
+		index.sortByRating(); 
 		
 		//Show Menu by restaurant : 
-		
+		ArrayList<Restaurant> rests = index.getRestaurants(); 
+		for (Restaurant rest : rests) {
+			System.out.println(rest.getName());
+			rest.getMenu().displayAllToCustomers();
+		}
 		
 		//Generate Customers 
 		Customer cust1 = new Customer("Iani", Gender.MALE, "iani_1"); 

@@ -58,9 +58,7 @@ public class OrderManager  {
 		ArrayList<Order> ordersByName = new ArrayList<>(); 
 		for (Entry<String, Order> element : currentOrders.entrySet()) {
 		    if(element.getKey().equals(userName)){
-		    	//System.out.println(element.getValue());
 		    	ordersByName.add( element.getValue()); 
-		    	//ordersByName.add((Order) currentOrders.values()); 
 		    }
 		}
 		return ordersByName; 
@@ -81,6 +79,7 @@ public class OrderManager  {
 		return false; 
 	}
 	
+	//If an order is finalized we send it to the archive 
 	public void saveToArchive(Order order) {
 		archive.addToList(order);
 	}
@@ -90,15 +89,6 @@ public class OrderManager  {
 		return order ; 
 	}
 	
-//	public void getAllOrdersFromArchive(){
-//		// fills the arrayList here 
-//		// now we can work ...
-//	}
-	
-	//findOrderByCustomer
-	public void findOrderByCustomer(){
-		
-	}
 	
 	public void sortOrdersByMaxTotal(){
 		//find the customer
@@ -109,10 +99,7 @@ public class OrderManager  {
 		//find the customer
 	}
 	//find the customer with the most orders
-
-	public void saveOrder(Order order) {
-		// TODO Auto-generated method stub
-	}
+	
 	
 	//find orders by day , on which days we have the most orders
 }

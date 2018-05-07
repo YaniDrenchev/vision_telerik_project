@@ -24,6 +24,17 @@ public class Menu implements ICRUD {
 		}
 	}
 	
+	public void displayItemAndPrice(){
+		int i = 0;
+		for (IAddable itemN : menu) {
+	 		Item item = (Item) itemN ;
+	 		 i++; 
+		System.out.println(  i + ". " + item.getName() + ", " +  ", " + item.getPrice() + " " + currency +  " , " + item.getContent() + " ml");
+		}
+	}
+	
+	
+	//TODO check if drink
 	@Override
 	public void displayAll() {
 		int i = 1;

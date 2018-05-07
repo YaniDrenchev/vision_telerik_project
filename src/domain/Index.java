@@ -12,6 +12,10 @@ public class Index  implements ICRUD, IFind{
 		this.restaurants = new ArrayList<>(); 
 	}
 	
+	public ArrayList<Restaurant> getRestaurants() {
+		return restaurants;
+	}
+
 	public static Index getInstance(){
 		if(INSTANCE == null){
 			INSTANCE = new Index();
@@ -29,7 +33,6 @@ public class Index  implements ICRUD, IFind{
 		int indexToDelete = 0;  
 		for (Restaurant rest : restaurants){
 			if( rest.getId() == id ){
-				//System.out.println(rest.getName());
 				indexToDelete =  restaurants.indexOf(rest); 
 			} 
 		}
@@ -55,18 +58,17 @@ public class Index  implements ICRUD, IFind{
 		return found;
 	}
 	
-	//TODO add exceptions
-	public ISearchable findByName(String name) throws Exception{
+	public ISearchable findByName(String name){
 		Restaurant found = new Restaurant(); 
 		for (ISearchable restaurant : restaurants){
-			if(((Restaurant) restaurant).getName().equals(name)){
+			if(((Restaurant) restaurant).getName().equalsIgnoreCase(name)){
 				found = (Restaurant) restaurant ; 
 			}
 		}
 		return found;
 	}
 
-	//TODO add exceptions
+	
 	public ArrayList<ISearchable> findByType(Type type){
 		ArrayList<ISearchable> found = new ArrayList<>(); 
 		
