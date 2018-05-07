@@ -40,12 +40,7 @@
 	    public ArrayList<Item> getItems() {
 			return items;
 		}
-	    
-	    public void finalize(){
-		    calculateTotal();
-			status = Status.FINISHED;// Complete order
-			restaurant.getOrderManager().saveToArchive(this);
-	    }
+
 	    
 	    private void calculateTotal(){
 	    	double total =  0.0;   

@@ -26,21 +26,16 @@ public class Customer extends Person {
         order.addItem(item);
     }
 
-    public void pay(Order order){
-        order.finalize();
-    }
+
 
     public  void checkTime(Restaurant rest){
         rest.getWorkingHours();
     }
 
     public void evaluate(Restaurant rest, double rating){
-        if (order.getStatus() == Status.FINISHED){
+
             rest.getEvaluationFromUser(rating);
-        }else{
-            //Open a window and tell the client that it is not possible to evaluate
-            System.out.println("You dint't visit that rest!!! Stop cheating");
-        }
+
     }
 
     public void writeAComment(Restaurant rest, String comment){

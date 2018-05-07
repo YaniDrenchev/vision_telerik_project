@@ -88,8 +88,6 @@ public class PayScene extends FirstScene {
                 customerNew = new Customer(nameInput.getText(), Gender.valueOf(genderInput.getText().toUpperCase()), usernameInput.getText());
                 addCommentButton.setVisible(true);
                 commentInput.setVisible(true);
-                Order current = new Order(((Restaurant) currentRest1), ((Restaurant) currentRest1).getManager());
-                customerNew.pay(current);
             } catch (IllegalArgumentException e) {
                 InvalidUserInformation.display();
             }
@@ -102,7 +100,6 @@ public class PayScene extends FirstScene {
     public static void commentButton(ISearchable currentRest) {
 
         customerNew.writeAComment((Restaurant) currentRest, commentInput.getText());
-        ((Restaurant) currentRest).displayAllCustomerComments();
         addRankButton.setVisible(true);
         rankInput.setVisible(true);
 
