@@ -11,7 +11,7 @@ Team members:
 Project purpose: 
 We are trying to make a difference in the restaurant business. We are tired of waiting the waiter to come and take our order
 or waiting to see us in order to make an order. These awkward situations could be avoided using our product. "The vision" is an
-revolutionary product wich is made to help the customer and also the staff in the restaurant. There are many functions which
+revolutionary product which is made to help the customer and also the staff in the restaurant. There are many functions which
 are helping the manager and also the client. Our application will allow customers to do everything mentioned
 trough their smartphone. Using our app, the clients are able to pay the bill, to order food or just to check the restaurants.  
 
