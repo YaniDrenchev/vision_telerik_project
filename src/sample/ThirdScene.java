@@ -123,11 +123,8 @@ public class ThirdScene extends FirstScene {
     }
 
     private static void choseRestaurant() {
-        Order dsa = new Order();
-        Customer cus = new Customer("dsa", Gender.MALE, "das");
-
         String menu = nameInputRestaurant1.getText();
-        ExceptionClass current = new ExceptionClass(index1, menu);
+        ExceptionClass current = new ExceptionClass(index1, menu,managerCustomer);
         current.getException();
 
     }

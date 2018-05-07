@@ -54,8 +54,6 @@ public class ForthScene extends Main {
         cust5.writeAComment(((Restaurant) rest), "das");
         VBox vBox = new VBox();
         Button addButton = new Button("Add");
-        String nLength = "";
-        String bill = "";
         Button billButton = new Button("Bill" + ": " + n + "0" + "lv");
 
         addButton.setOnAction(e -> addButtonClick(billButton, rest));
@@ -83,18 +81,13 @@ public class ForthScene extends Main {
     private static void addButtonClick(Button button, ISearchable rest) {
         String menu = nameInputProduct.getText();
 
-        Item currentItem = (Item) ((Restaurant) rest).getMenu().findByName(menu);
+        ExceptionClass2 current = new ExceptionClass2(rest, menu,n);
+        current.getException();
+        n+=current.getPrice();
+        n=round(n,2);
+        button.setText("Bill" + ": " + n  + "lv");
 
-
-        double currentProductPrice = currentItem.getPrice();
-
-        n += currentProductPrice;
-        n = round(n, 2);
-        String bill = n + "lv";
-
-        button.setText(bill);
     }
-
     public static double round(double value, int places) {
         if (places < 0) throw new IllegalArgumentException();
 
@@ -102,6 +95,7 @@ public class ForthScene extends Main {
         bd = bd.setScale(places, RoundingMode.HALF_UP);
         return bd.doubleValue();
     }
+
 }
 
 

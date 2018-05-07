@@ -126,7 +126,7 @@ public class SecondScene extends FirstScene {
         if (customerManager.equals("Manager")){
 
         }else{
-        ThirdScene.display2(current.getId(),payMessage1,customerManager);
+        ThirdScene.display2(current.getId(),payMessage1,payMessage1);
         Stage window1 = (Stage) current.getScene().getWindow();
         window1.close();
         }

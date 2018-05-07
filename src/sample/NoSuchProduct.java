@@ -10,15 +10,15 @@ import javafx.stage.Stage;
 
 
 public class NoSuchProduct {
-    public static void display(String title,String message){
+    public static void display(){
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
-        window.setTitle(title);
+        window.setTitle("Wrong Restaurant name");
         window.setWidth(250);
         window.setHeight(200);
         Label label1 = new Label();
-        label1.setText(message);
-        Button addButton = new Button("Thank you");
+        label1.setText("There is no restaurant with such name");
+        Button addButton = new Button("Try Again");
         addButton.setOnAction(e->window.close());
         VBox layout = new VBox(10);
         layout.getChildren().addAll(label1,addButton);
