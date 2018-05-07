@@ -20,21 +20,17 @@ public class Waiter extends Person {
     public void takeOrder(Item item){
     	Chef chef1 = callAChef(); 
         giveOrderToChef(item , chef1);
-        System.out.println("I gave the order to the chef");
     }
     
     public void giveOrderToChef(Item item, Chef chef){
         chef.takeOrder(item, this);
-        System.out.println("The chef took the order");
     }
     
     public void giveItem(Item item){
-        logItemInTheSystem(item); 
-    	System.out.println("Here you are");
+        logItemInTheSystem(item);
     }
     
     public void logItemInTheSystem(Item item){
-    	System.out.println("Item served  to client"); 
     }
     
     public Chef callAChef(){

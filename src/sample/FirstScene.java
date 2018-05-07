@@ -13,11 +13,8 @@ import javafx.util.Duration;
 public class FirstScene extends Application {
 
 
-    public ImageView click;
-    public ImageView clickCustomer;
-    public ImageView clickManager;
-    public AnchorPane hideCustomer;
-    public AnchorPane hideManager;
+    public ImageView click,clickCustomer,clickManager;
+    public AnchorPane hideCustomer,hideManager;
     public ImageView buttonSitNEat,buttonDelivery,buttonOrder;
     public ImageView firstImgHide,secondImgHide,thirdImgHide,forthImgHide,fifthImgHide;
     private static String customerOrManager; //With the same Image Buttons at SecondScene opens different TableScene for Manager/Customer
@@ -64,6 +61,7 @@ public class FirstScene extends Application {
         closeFirstScene.setOnFinished(e-> window2.close());
         SequentialTransition seqT = new SequentialTransition(clickManager, resize, openManagerScene,closeFirstScene);
         seqT.play();
+
         FadeTransition fade = new FadeTransition(sec_1,clickCustomer);
         fade.setFromValue(1.0);
         fade.setToValue(0);
@@ -94,17 +92,17 @@ public class FirstScene extends Application {
     public void clickCustomer() {
         final Duration sec_2 = Duration.millis(2000);
         final Duration sec_1 = Duration.millis(1000);
+
         PauseTransition reveal = new PauseTransition(Duration.seconds(1));
         reveal.setOnFinished(e -> hideCustomer.setVisible(true));
         reveal.setOnFinished(e -> hideCustomer.setStyle("-fx-background-color: white "));
         TranslateTransition move = new TranslateTransition(sec_2);
-        move.setToX(-178);
+        move.setToX(-170);
         move.setToY(-303);
         ScaleTransition resize = new ScaleTransition(sec_1);
         resize.setByX(-0.55f);
         resize.setByY(-0.55f);
         resize.setAutoReverse(true);
-
         SequentialTransition seqT = new SequentialTransition(clickCustomer, resize, move, reveal);
         seqT.play();
 
@@ -131,8 +129,8 @@ public class FirstScene extends Application {
         FadeTransition fade5 = new FadeTransition(sec_1,fifthImgHide);
         fade5.setFromValue(1.0);
         fade5.setToValue(0);
-        String result = ""; //if exception is found result = not found if word is found result = thatword
         fade5.play();
+
         PauseTransition hideImg = new PauseTransition(sec_1);
         hideImg.setOnFinished(e->firstImgHide.setVisible(false));
         hideImg.play();
@@ -151,11 +149,9 @@ public class FirstScene extends Application {
         PauseTransition hideImg5 = new PauseTransition(sec_1);
         hideImg5.setOnFinished(e->clickManager.setVisible(false));
         hideImg5.play();
+        }
 
-
-
-    }
-    //order in a digital way when in the restaurant
+        //order in a digital way when in the restaurant
     public void buttonClickSit(){
         payMessage=buttonSitNEat.getId();//at the PayScene those give different messages for the type of service you have chosen
         SecondScene.display1(payMessage,customerOrManager);
@@ -178,7 +174,7 @@ public class FirstScene extends Application {
         Stage window = (Stage) buttonSitNEat.getScene().getWindow();
         window.close();
     }
-
+//rotate animation
     public void mouseEnteredCustomer() {
         clickCustomer.setRotate(2);
         PauseTransition rotate = new PauseTransition(Duration.millis(100));
@@ -194,6 +190,7 @@ public class FirstScene extends Application {
         rotate4.setOnFinished(e -> clickCustomer.setRotate(0));
         rotate4.play();
     }
+    //rotate animation
     public void mouseEnteredManager(){
         clickManager.setRotate(2);
         PauseTransition rotate = new PauseTransition(Duration.millis(100));

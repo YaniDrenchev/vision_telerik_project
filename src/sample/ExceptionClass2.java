@@ -1,34 +1,34 @@
 package sample;
 
+import com.compan.*;
 import domain.ISearchable;
 import domain.Restaurant;
 import domain.food.Item;
 
 
-
-
 public class ExceptionClass2 extends FirstScene {
     private ISearchable rest;
-    private String input;
+    private String inputProduct;
     private double n;
-    private String text;
 
 
-    public ExceptionClass2(ISearchable rest, String input, double n) {
+    public ExceptionClass2(ISearchable rest, String inputProduct, double n) {
         this.rest = rest;
-        this.input = input;
+        this.inputProduct = inputProduct;
         this.n = n;
     }
 
-    public void getException() {
+    public void getException(Customer currentOrder) {
         try {
-            Item currentItem = (Item) ((Restaurant) rest).getMenu().findByName(input);
+
+            Item currentItem = (Item) ((Restaurant) rest).getMenu().findByName(inputProduct);
             double currentProductPrice = currentItem.getPrice();
             n = currentProductPrice;
-
+            ((Restaurant) rest).getOrderFromCustomer(currentOrder, currentItem);
         } catch (NullPointerException e) {
             NoSuchProduct.display();
         }
+
     }
 
     public Double getPrice() {

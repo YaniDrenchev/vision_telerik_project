@@ -27,6 +27,7 @@ import java.util.ArrayList;
 public class ForthScene extends Main {
     private static TextField nameInputProduct;
     private static double n = 0;
+    private static Customer currentOrder;
 
     public static void display2(ISearchable rest, String payMessage) {
         TableView<IAddable> table;
@@ -47,21 +48,21 @@ public class ForthScene extends Main {
         ObservableList<IAddable> restMenuObs = FXCollections.observableArrayList(restMenu);
         table.setItems(restMenuObs);
         table.getColumns().addAll(nameColumn, priceColumn, contentColumn);
+
         nameInputProduct = new TextField();
-        nameInputProduct.setPromptText("Restaurant Number");
+        nameInputProduct.setPromptText("Product name");
         nameInputProduct.setMinWidth(100);
-        Customer currentOrder = new Customer("Sokrat", Gender.MALE, "gre_pte");
-        currentOrder.writeAComment(((Restaurant) rest), "das");
+
+        currentOrder = new Customer("Sokrat", Gender.MALE, "gre_pte");
+
         VBox vBox = new VBox();
+
         Button addButton = new Button("Add");
         Button billButton = new Button("Bill" + ": " + n + "0" + "lv");
-
         addButton.setOnAction(e -> addButtonClick(billButton, rest));
 
         Button payButton = new Button("Pay");
         payButton.setOnAction(e -> PayScene.displayPay(rest, n, payMessage));
-        System.out.println(payMessage);
-
 
         HBox hBox = new HBox();
         hBox.setPadding(new Insets(10, 10, 10, 10));
@@ -70,7 +71,6 @@ public class ForthScene extends Main {
 
         vBox.getChildren().addAll(table, hBox);
         Scene scene4 = new Scene(vBox);
-
 
         Stage window = new Stage();
         window.setScene(scene4);
@@ -82,7 +82,8 @@ public class ForthScene extends Main {
         String menu = nameInputProduct.getText();
 
         ExceptionClass2 current = new ExceptionClass2(rest, menu,n);
-        current.getException();
+        current.getException(currentOrder);
+
         n+=current.getPrice();
         n=round(n,2);
         button.setText("Bill" + ": " + n  + "lv");

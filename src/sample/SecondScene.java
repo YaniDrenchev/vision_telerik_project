@@ -10,12 +10,7 @@ import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 public class SecondScene extends FirstScene {
-    private static ImageView CHINESE;
-    private static ImageView PIZZA;
-    private static ImageView INDIAN;
-    private static ImageView SUSHI;
-    private static ImageView CAFETERIA;
-    private static ImageView PUB;
+    private static ImageView CHINESE,PIZZA,INDIAN,SUSHI,CAFETERIA,PUB;
     private static String payMessage1;
     private static String customerManager;
     public static void display1(String payMessage,String customerOrManager) {
@@ -37,12 +32,19 @@ public class SecondScene extends FirstScene {
         root.setTranslateY(53);
         root.setStyle("-fx-background-color:white");
 
+        Image vision = new Image("/resources/vision.png");
+        ImageView visionView = new ImageView(vision);
+        visionView.setY(200);
+        visionView.setX(190);
+        visionView.setFitHeight(50);
+        visionView.setFitWidth(222);
+
         Image pizza = new Image("/resources/pizza.png");
         PIZZA = new ImageView(pizza);
         PIZZA.setFitHeight(150);
         PIZZA.setFitWidth(150);
-        PIZZA.setY(265);
-        PIZZA.setX(220);
+        PIZZA.setY(272);
+        PIZZA.setX(230);
         PIZZA.setId("PIZZA");
         PIZZA.setOnMousePressed(e->close(PIZZA));
         PIZZA.setOnMouseEntered(e->shake(PIZZA));
@@ -72,7 +74,7 @@ public class SecondScene extends FirstScene {
         INDIAN.setFitHeight(100);
         INDIAN.setFitWidth(200);
         INDIAN.setX(193);
-        INDIAN.setY(65);
+        INDIAN.setY(60);
         INDIAN.setId("INDIAN");
         INDIAN.setOnMousePressed(e->close(INDIAN));
         INDIAN.setOnMouseEntered(e->shake(INDIAN));
@@ -97,15 +99,14 @@ public class SecondScene extends FirstScene {
         PUB.setOnMousePressed(e->close(PUB));
         PUB.setOnMouseEntered(e->shake(PUB));
 
-
-        layout5.getChildren().addAll(header,root,CHINESE,CAFETERIA,PIZZA,SUSHI,PUB,INDIAN);
+        layout5.getChildren().addAll(header,root,CHINESE,CAFETERIA,PIZZA,SUSHI,PUB,INDIAN,visionView);
         Scene scene2 = new Scene(layout5,600, 400);
 
         window.setScene(scene2);
         window.show();
     }
     public static void shake(ImageView current){
-       current.setRotate(2);
+        current.setRotate(2);
         PauseTransition delay = new PauseTransition(Duration.millis(100));
         delay.setOnFinished(e -> current.setRotate(-4));
         delay.play();
@@ -121,9 +122,9 @@ public class SecondScene extends FirstScene {
 
     }
     public static void close(ImageView current){
-        System.out.println(customerManager);
         //if SecondScene has been opened from FirstSceneManager it uses String="Manager" else customer.
         if (customerManager.equals("Manager")){
+            SecondSceneManager.display(current.getId());
 
         }else{
         ThirdScene.display2(current.getId(),payMessage1,payMessage1);
