@@ -1,5 +1,7 @@
 package com.compan;
 
+import domain.food.Item;
+
 public class Weiter extends Person {
     private String currentOrder;
     private Item item;
@@ -15,7 +17,6 @@ public class Weiter extends Person {
         System.out.println("The chef took the order");
     }
     public static void giveItem(Item item){
-
         Order.addItem(item);
         System.out.println("Here you are");
     }

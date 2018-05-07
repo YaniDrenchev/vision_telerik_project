@@ -2,6 +2,8 @@ package com.compan;
 
 import java.util.Timer;
 
+import domain.food.Item;
+
 public class Chef extends Person {
     public Chef(String name, Gender gender) {
         super(name, gender);

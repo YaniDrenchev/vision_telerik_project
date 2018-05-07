@@ -1,14 +1,14 @@
 package com.compan;
 
 import domain.Restaurant;
-import domain.foodIvelin.Item;
+import domain.food.Item;
 
 public class Customer extends Person {
     private String username;
 
     public Customer(String name, Gender gender, String username) {
         super(name, gender);
-        if (username.length() > 12 || username.length() < 3){
+        if (username.length() > 32 || username.length() < 3){
             System.out.println("Invalid username");
             // Ivaylo will show a window "Invalid username"
         }else{
