@@ -1,3 +1,7 @@
+package domain.food;
+
+import domain.IAddable;
+
 public abstract class Item implements IAddable {
   
   private Integer id;

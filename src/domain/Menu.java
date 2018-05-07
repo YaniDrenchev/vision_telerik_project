@@ -3,9 +3,8 @@ package domain;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 
-import domain.foodIvelin.Food;
-import domain.foodIvelin.Item;
-
+import domain.food.Food;
+import domain.food.Item;
 
 public class Menu implements ICRUD {
 	private ArrayList<IAddable> menu;
@@ -21,10 +20,9 @@ public class Menu implements ICRUD {
 		for (IAddable itemN : menu) {
 	 		Item item = (Item) itemN ;
 	 		 i++; 
-		System.out.println(  i + ". " + item.getName() + ", " +  item.getDescribe() + ", " + item.getPrice() + " " + currency +  " , " + item.getContent() + " ml");
+		System.out.println(  i + ". " + item.getName() + ", " +  item.getDescription() + ", " + item.getPrice() + " " + currency +  " , " + item.getContent() + " ml");
 		}
 	}
-	
 	
 	@Override
 	public void displayAll() {
@@ -32,7 +30,7 @@ public class Menu implements ICRUD {
 		for (IAddable itemN : menu) {
 	 		Item item = (Item) itemN ;
 	 		 i++; 
-			System.out.println(  item.getId() + ". " + item.getName() + ", " +  item.getDescribe() + ", " + item.getPrice() + " " + currency +  " , " + item.getContent() + " ml");
+			System.out.println(  item.getId() + ". " + item.getName() + ", " +  item.getDescription() + ", " + item.getPrice() + " " + currency +  " , " + item.getContent() + " ml");
 		}
 	}
 
@@ -51,7 +49,6 @@ public class Menu implements ICRUD {
 			} 
 		}
 		menu.remove(indexToDelete);  
-		
 	}
 
 	public ArrayList<IAddable> getMenu() {
@@ -77,7 +74,17 @@ public class Menu implements ICRUD {
 		}
 		return null; 
 	}
-
+	
+	public IAddable findByName(String name) {
+        for (IAddable itemN : menu){
+            Item item = (Item) itemN;
+            if(item.getName().equals(name) ){
+                return item;
+            }
+        }
+        return null;
+    }
+	
 	public ArrayList<Food> findVegetarianOnly() {
 		ArrayList<Food> vegsOnly = new ArrayList<>(); 
 		for (IAddable itemN : menu) {
@@ -92,6 +99,4 @@ public class Menu implements ICRUD {
 		}
 		return vegsOnly;
 	}
-	
-	
 }

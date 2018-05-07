@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="603.0" style="-fx-background-color: white" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane fx:id="hideManager" prefHeight="400.0" prefWidth="600.0" style="visibility: hidden;">
+         <children>
+            <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="374.0" layoutY="150.0">
+               <image>
+                  <Image url="@../resources/menu1.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="100.0" fitWidth="99.0" layoutX="108.0" layoutY="152.0">
+               <image>
+                  <Image url="@../resources/addrest.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="hideCustomer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="visibility: hide;">
+         <children>
+            <AnchorPane prefHeight="53.0" prefWidth="600.0" style="-fx-background-color: #A92232;">
+               <children>
+                  <Button layoutY="4.0" mnemonicParsing="false" style="-fx-background-color: #A92232;" text="The Vision" textFill="#ffc71b" textOverrun="LEADING_WORD_ELLIPSIS">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Button>
+                  <ImageView fx:id="click" fitHeight="30.0" fitWidth="52.0" layoutX="547.0" layoutY="12.0" onMousePressed="#mousePressed" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/close.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <ImageView fitHeight="160.0" fitWidth="200.0" layoutX="10.0" layoutY="120.0">
+               <image>
+                  <Image url="@../resources/delivery.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="160.0" fitWidth="200.0" layoutX="385.0" layoutY="120.0">
+               <image>
+                  <Image url="@../resources/delivery1.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="199.0" layoutY="100.0">
+               <image>
+                  <Image url="@../resources/love.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="buttonSitNEat" fitHeight="51.0" fitWidth="185.0" layoutX="200.0" layoutY="320.0" onMousePressed="#buttonClickSit">
+               <image>
+                  <Image url="@../resources/sitandeat1.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="buttonDelivery" fitHeight="39.0" fitWidth="180.0" layoutX="10" layoutY="275.0" onMousePressed="#buttonClickDelivery">
+               <image>
+                  <Image url="@../resources/homedelivery1.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="buttonOrder" fitHeight="42.0" fitWidth="180.0" layoutX="400.0" layoutY="275.0" onMousePressed="#buttonClickOrder">
+               <image>
+                  <Image url="@../resources/orderandtake1.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <ImageView fx:id="clickCustomer" fitHeight="200.0" fitWidth="200.0" layoutX="370.0" layoutY="230.0" onMouseEntered="#mouseEnteredCustomer" onMousePressed="#clickCustomer">
+         <image>
+            <Image url="@../resources/macaron.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="clickManager" fitHeight="200.0" fitWidth="200.0" layoutX="40.0" layoutY="225.0" onMouseEntered="#mouseEnteredManager" onMousePressed="#clickManager">
+         <image>
+            <Image url="@../resources/manager3.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="firstImgHide" fitHeight="105" fitWidth="450" layoutX="70" layoutY="-5">
+         <image>
+            <Image url="@../resources/areyou.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="secondImgHide" fitHeight="82" fitWidth="150" layoutX="220.0" layoutY="290.0">
+         <image>
+            <Image url="@../resources/or.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="thirdImgHide" fitHeight="170" fitWidth="286" layoutX="-20" layoutY="105.0">
+         <image>
+            <Image url="@../resources/managertext.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="forthImgHide" fitHeight="162" fitWidth="223" layoutX="360" layoutY="110.0">
+         <image>
+            <Image url="@../resources/customertext.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="fifthImgHide">
+         <image>
+            <Image url="@../resources/bubbles3.png" />
+         </image>
+      </ImageView>
+
+   </children>
+</AnchorPane>

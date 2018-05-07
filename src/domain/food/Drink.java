@@ -1,3 +1,5 @@
+package domain.food;
+
 public class Drink extends Item {
   
   private Boolean alcohol;

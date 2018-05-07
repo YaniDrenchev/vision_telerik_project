@@ -1,8 +1,6 @@
 package domain;
 
 public enum Type {
-//	FINE_DINING, 
-//	FAST_FOOD,
 	PIZZA, 
 	BURGER,
 	DONER, 

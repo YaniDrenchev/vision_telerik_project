@@ -11,15 +11,14 @@ public class RatingsManager {
 		super();
 		this.rating = 0.00 ;
 		this.allRatings = new ArrayList<>();
-		generateRating();   //for demo purposes only, It is boring to start wiht rests with 0.0 rating each
+		generateRating();   
 	}
 	
+	//for demo purposes only, It is boring to start witх rests with 0.0 rating each
 	 private void generateRating() {
 		Random ran = new Random();
-		int repetitions = ran.nextInt(6) ;
-		
 		for (int i = 0; i <= 12; i++) {
-			Double userRating = (double) ran.nextInt(6) ;  //(double) (ran.nextInt(1) + 5);   
+			Double userRating = (double) ran.nextInt(6) ;     
 			allRatings.add(userRating); 
 		}
 	}
@@ -42,4 +41,4 @@ public class RatingsManager {
 	public void addRating(double RatingFromUser){
 		allRatings.add(RatingFromUser); 
 	}
-}
+}	

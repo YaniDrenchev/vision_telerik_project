@@ -1,13 +1,15 @@
 package domain;
 
 import com.compan.Customer;
+import com.compan.Manager;
+
+import domain.food.Item;
 
 public class Restaurant implements ISearchable, IAddable, Comparable<Restaurant> {
 	private static int counter; 	
 	private int id; 
 	private String name;
 	private Type type; 
-	private WorkingStatus workingStatus;   //TODO 
 	private String workingHours; 
 	private String webSite; 
 	private String phone; 
@@ -16,17 +18,15 @@ public class Restaurant implements ISearchable, IAddable, Comparable<Restaurant>
 	private Double rating ; 
 	private String address; 
 	private Menu menu; 
-	//private Order order; 
 	private OrderManager orderManager; 
 	private RatingsManager ratingsManager; 
 	private CommentsManager commentsManager; 
-	//private OrdersArchive ordersArchive; 
 	
 	public Restaurant() {
 		super();
 	}
 	
-	public Restaurant(String name, Type type, String webSite, String phone, String address,  String description) {
+	public Restaurant(String name, Type type, String webSite, String phone, String address,  String description, Manager manager) {
 		super();
 		this.name = name;
 		this.type = type;
@@ -35,7 +35,6 @@ public class Restaurant implements ISearchable, IAddable, Comparable<Restaurant>
 		this.description = description;
 		this.address = address; 
 		this.id = ++counter + 100; 
-		this.workingStatus = WorkingStatus.OPEN; 
 		this.menu = new Menu(); 
 		this.orderManager = new OrderManager();
 		this.commentsManager = new CommentsManager(); 
@@ -44,29 +43,20 @@ public class Restaurant implements ISearchable, IAddable, Comparable<Restaurant>
 	}
 	
 	//same as above but with predefined rating, as if the restaurant has existed already , done for demonstration purposes
-	public Restaurant(String name, Type type, String webSite, String phone, String address,  String description, Double rating) {
-		super();
-		this.name = name;
-		this.type = type;
-		this.webSite = webSite;
-		this.phone = phone;
-		this.rating = rating; 
-		this.description = description;
-		this.address = address; 
-		this.id = ++counter + 1000; 
-		this.workingStatus = WorkingStatus.OPEN; 
-		this.commentsManager = new CommentsManager(); 
-		this.menu = new Menu(); 
-		this.orderManager = new OrderManager(); 
-		this.ratingsManager = new RatingsManager(); 
-	}
-	
-//	public Order getOrder() {
-//		return order;
-//	}
-//
-//	public void setOrder(Order order) {
-//		this.order = order;
+//	public Restaurant(String name, Type type, String webSite, String phone, String address,  String description, Double rating) {
+//		super();
+//		this.name = name;
+//		this.type = type;
+//		this.webSite = webSite;
+//		this.phone = phone;
+//		this.rating = rating; 
+//		this.description = description;
+//		this.address = address; 
+//		this.id = ++counter + 1000; 
+//		this.commentsManager = new CommentsManager(); 
+//		this.menu = new Menu(); 
+//		this.orderManager = new OrderManager(); 
+//		this.ratingsManager = new RatingsManager(); 
 //	}
 
 	public int getId() {
@@ -137,11 +127,6 @@ public class Restaurant implements ISearchable, IAddable, Comparable<Restaurant>
 		return menu;
 	}
 	
-	//TODO change the id
-	public Order createOrder(Customer customer){
-		return new Order(id, this, manager,  customer);
-	}
-	
 	public OrderManager getOrderManager() {
 		return orderManager;
 	}
@@ -154,10 +139,14 @@ public class Restaurant implements ISearchable, IAddable, Comparable<Restaurant>
 		this.workingHours = workingHours;
 	}
 	
-	//TODO check if the rating from user is in range:  0 -5
 	public String getEvaluationFromUser(Double ratingFromUser){
-		ratingsManager.addRating(ratingFromUser);
-		String msg = "Thanks for the evaluation! Your rating of our service is important to us"; 
+		String msg = ""; 
+		if(ratingFromUser >= 0 && ratingFromUser <= 5 ){
+			ratingsManager.addRating(ratingFromUser);
+			msg = "Thanks for the evaluation! Your rating of our service is important to us"; 
+		}else {
+			msg = "Rating should be between 0 and 5."; 
+		}
 		return msg; 
 	}
 	
@@ -166,19 +155,32 @@ public class Restaurant implements ISearchable, IAddable, Comparable<Restaurant>
 		return rating ; 
 	}
 	
-	//TODO
+	
 	public void getCommentFromCustomer(String commentContent, Customer customer) {
 		Comment comment = new Comment( customer.getUsername(), commentContent);
 		commentsManager.addToList(comment);
 	}
 	
+ 
+//	public void getCommentFromCustomer(String commentContent, String username) {
+//		Comment comment = new Comment( username, commentContent);
+//		commentsManager.addToList(comment);
+//	}
+	
 	public void displayAllCustomerComments(){
 		commentsManager.displayAll();
 	} 
 	
-	//For demo purposes , 0.0 rating is boring
 	public Double getInitialRating() {
 		return this.rating; 
+	}
+	
+	public CommentsManager getCommentsManager() {
+		return commentsManager;
+	}
+	
+	public void getOrderFromCustomer(Customer customer, Item item){
+		orderManager.processOrder(this, customer, item);
 	}
 	
 	@Override

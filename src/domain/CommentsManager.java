@@ -2,14 +2,14 @@ package domain;
 
 import java.util.ArrayList;
 
-public class CommentsManager implements ICRUD  {
+public class CommentsManager implements ICRUD, IFindById  {
 	private ArrayList<IAddable> allComments ;
 	
 	public CommentsManager() {
 		super();
 		this.allComments = new ArrayList<>();
 	}
-
+	@Override
 	public IAddable findById(int id){
 		IAddable found = new Comment();
 		for (IAddable comment : allComments){

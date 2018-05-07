@@ -1,3 +1,5 @@
+package domain.food;
+
 public class Food extends Item {
   
   private Boolean vegetarianism;

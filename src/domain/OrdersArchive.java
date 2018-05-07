@@ -1,10 +1,13 @@
 package domain;
 
-import java.io.File;
 import java.util.ArrayList;
 
-public class OrdersArchive implements ICRUD {
-	private File file; 
+import com.compan.Order;
+
+import domain.food.Item;
+
+public class OrdersArchive implements ICRUD, IFindById {
+	//private File file; 
 	private ArrayList<IAddable> archive ;
 	
 	public OrdersArchive(){
@@ -15,8 +18,14 @@ public class OrdersArchive implements ICRUD {
 
 	@Override
 	public void displayAll() {
-		// TODO Auto-generated method stub
-		
+		for (IAddable orderN : archive) {
+			Order order = (Order) orderN ; 
+			System.out.println( order.getDate() + " ->  " + order.getId()); 
+			for (Item item : order.getItems()) {
+				System.out.println(item.getName() +  "....."  +  item.getPrice());
+			}
+			System.out.println("$" + order.getSum());
+		}
 	}
 	
 	public IAddable findById(int id){
@@ -38,6 +47,21 @@ public class OrdersArchive implements ICRUD {
 	public void deleteFromList(int id) {
 		// TODO Auto-generated method stub
 	}
+
+	
+	
+	
+//	@Override
+//	public IAddable read() {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+//
+//	@Override
+//	public void write(IAddable order) throws IOException {
+//		FileOutputStream f = new FileOutputStream(file);
+//		ObjectOutputStream writer = new ObjectOutputStream(f);
+//	}
 	
 //TODO use in the ReportsCreator
 //	public void write(Order order) throws IOException {
@@ -70,13 +94,5 @@ public class OrdersArchive implements ICRUD {
 //	}
 }
 
-
-//NOTES 
-/*
- * Data to be generated beforehand
- * skip serialization for now 
- * 
- * 
- */
 
 

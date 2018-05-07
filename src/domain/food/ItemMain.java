@@ -1,3 +1,5 @@
+package domain.food;
+
 public class ItemMain {
   public static void main(String[] args) throws Exception {
     Item mandja = new Food("Mandja", 21.99, 600.00, "peppers and tomatoes", true);
