@@ -25,7 +25,6 @@
 			super();
 		}
 	
-		//constructor
 	    public Order(Restaurant restaurant, Manager manager){
 	        this.restaurant = restaurant ;
 	        this.manager = manager;

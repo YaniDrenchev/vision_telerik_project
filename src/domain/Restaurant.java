@@ -147,7 +147,6 @@ public class Restaurant implements ISearchable, IAddable, Comparable<Restaurant>
 		return rating ; 
 	}
 	
-	
 	public void getCommentFromCustomer(String commentContent, Customer customer) {
 		Comment comment = new Comment( customer.getUsername(), commentContent);
 		commentsManager.addToList(comment);

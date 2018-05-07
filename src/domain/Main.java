@@ -436,69 +436,64 @@ public class Main {
 			System.out.println( "id: " +  order.getId()  + " " +  order.getSum()  );
 		}
 		
-//		System.out.println("------- Show retrieved order from archive ------");
-//		System.out.println(ordR.getRestaurant().getName());
-//		
-//		cust1.evaluate(rest1, 3.2);
-//		cust2.evaluate(rest1, 0.3);
-//		System.out.println("----- Get Rating of rest1 ----");
-//		System.out.println("Rating of " + rest1.getName() + "  " + rest1.getRating());
-//		
-//		//sort by rating: 
-//		System.out.println("---- Sort by rating:  ---- ");
-//		ArrayList<Restaurant> sortedByRating2 = index.sortByRating(); 
-//		for (Restaurant rest : sortedByRating2) {
-//			System.out.println( rest.getRating() + " " +  rest.getName() );
-//		}
-//		
-//		//Food 
-//		System.out.println();
-//		System.out.println("------   MENU -------");
-//		rest1.getMenu().displayAll();
-//		System.out.println("----Show the menu of to customers: " + rest1.getName() +  " ---- ");
-//		rest1.getMenu().displayAllToCustomers();
-//		
-//		System.out.println("------Find by Id : 3 --------");
-//		Item vodkaFound =  (Item) rest1.getMenu().findById(3); 
-//		System.out.println(vodkaFound.getName());
-//		// !!!
-//		System.out.println("----- Find by word ------");
-//		ArrayList<Item> allVodkas = rest1.getMenu().findByWord("Savoy"); 
-//		for (Item v:  allVodkas) {
-//			System.out.println(v.getName());
-//		}
-//		// !!!
-//		
-//		System.out.println("----- Find vegeterian ------");
-//		ArrayList<Food> vegeterianFood = rest1.getMenu().findVegetarianOnly() ;  
-//		for (Food v:  vegeterianFood) {
-//			System.out.println(v.getName());
-//		}
-//		
-//		System.out.println("----- Get all items of menu -----------");
-//		ArrayList<IAddable> men = rest1.getMenu().getMenu(); 
-//		for (IAddable itemN : men) {
-//			Item item = (Item) itemN;
-//			System.out.println(item.getName());
-//		}
-//		System.out.println();
-//		
-//		//Comments Part 
-//		//Write a comment: 
-//		//rest1.getCommentFromCustomer("Great music , great barbeque, lovely service", "boiko_123");
-//		//rest1.displayAllCustomerComments();
-//		
-//		System.out.println(" ------ Customer comments --------------");
-//		Customer pesho = new Customer("Pesho", Gender.MALE, "gre_pte");
-//		pesho.writeAComment(rest1, "Great music , great barbeque, lovely service");
-//		rest1.displayAllCustomerComments();
-//		
-//		System.out.println(" ------ Get all comments as an ArrayList:  --------------");
-//		ArrayList<IAddable> allComments = rest1.getCommentsManager().getAllComments();
-//		for (IAddable commentN : allComments) {
-//			Comment comment = (Comment) commentN;
-//			System.out.println(comment.getTimestamp() + "  " + comment.getAuthorName() + ":  " + comment.getContent());
-//		}
-//		System.out.println();
+		//Comments Part 
+		//Write a comment: 
+		System.out.println(" ------ Customer comments --------------");
+		rest1.getCommentFromCustomer("Great music , great barbeque, lovely service", cust1);
+		rest1.getCommentFromCustomer("Nice steaks , lots of meat and good music.", cust2);
+		rest1.getCommentFromCustomer("Service could be improved. ", cust3);
+		rest1.getCommentFromCustomer("The toilet was terribly clogged. ", cust4);
+		rest1.getCommentFromCustomer("Great atmosphere ", cust5);
+		rest1.displayAllCustomerComments();
+		
+		
+		System.out.println(" ------ Get all comments as an ArrayList:  --------------");
+		ArrayList<IAddable> allComments = rest1.getCommentsManager().getAllComments();
+		for (IAddable commentN : allComments) {
+			Comment comment = (Comment) commentN;
+			System.out.println(comment.getTimestamp() + "  " + comment.getAuthorName() + ":  " + comment.getContent());
+		}
+		System.out.println();
+		
+		cust1.evaluate(rest1, 3.2);
+		cust2.evaluate(rest1, 0.3);
+		System.out.println("----- Get Rating of rest1 ----");
+		System.out.println("Rating of " + rest1.getName() + "  " + rest1.getRating());
+		
+		//sort by rating: 
+		System.out.println("---- Sort by rating:  ---- ");
+		ArrayList<Restaurant> sortedByRating2 = index.sortByRating(); 
+		for (Restaurant rest : sortedByRating2) {
+			System.out.println( rest.getRating() + " " +  rest.getName() );
+		}
+		
+		//Food 
+		System.out.println();
+		System.out.println("------   MENU -------");
+		rest1.getMenu().displayAll();
+		System.out.println("----Show the menu of to customers: " + rest1.getName() +  " ---- ");
+		rest1.getMenu().displayAllToCustomers();
+		
+		System.out.println("----- Find by word ------");
+		ArrayList<Item> allVodkas = rest1.getMenu().findByWord("Savoy"); 
+		for (Item v:  allVodkas) {
+			System.out.println(v.getName());
+		}
+		
+		System.out.println("----- Find vegeterian ------");
+		ArrayList<Food> vegeterianFood = rest1.getMenu().findVegetarianOnly() ;  
+		for (Food v:  vegeterianFood) {
+			System.out.println(v.getName());
+		}
+		
+		System.out.println("----- Get all items of menu -----------");
+		ArrayList<IAddable> men = rest1.getMenu().getMenu(); 
+		for (IAddable itemN : men) {
+			Item item = (Item) itemN;
+			System.out.println(item.getName());
+		}
+		System.out.println();
+		
+		
 	}
 }

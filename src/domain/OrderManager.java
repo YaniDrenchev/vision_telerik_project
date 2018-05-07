@@ -10,10 +10,8 @@ import com.compan.Status;
 import domain.food.Item;
 
 public class OrderManager  {
-	//private Order order;
 	private HashMap<String, Order> currentOrders;  
 	private OrdersArchive archive;   
-	//private List<Order> orders;  // current orders , sill open 
 	
 	public OrderManager() {
 		//this.orders = new ArrayList<>(); 
@@ -22,8 +20,6 @@ public class OrderManager  {
 	}
 	
 	public void processOrder(Restaurant restaurant , Customer customer, Item item){
-		//System.out.println(restaurant.getManager());
-		
 		Order order = new Order(restaurant, restaurant.getManager()); 
 		if(orderExists(customer.getUsername())) {
 			currentOrders.get(customer.getUsername()).addItem(item);
@@ -101,7 +97,7 @@ public class OrderManager  {
 	}
 	
 	//TODO
-//	public ArrayList<Customer> sortOrdersByMostSpendingCustomers(){
+//	public ArrayList<Customer> sortByHighestSpendingCustomers(){
 //	
 //	}	
 		
