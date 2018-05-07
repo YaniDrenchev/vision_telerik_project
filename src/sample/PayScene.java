@@ -2,6 +2,7 @@ package sample;
 
 import com.compan.Customer;
 import com.compan.Gender;
+import com.compan.Order;
 import domain.ISearchable;
 import domain.Restaurant;
 import javafx.geometry.Pos;
@@ -103,6 +104,7 @@ public class PayScene extends FirstScene {
         ((Restaurant) currentRest).displayAllCustomerComments();
         addRankButton.setVisible(true);
         rankInput.setVisible(true);
+        ((Restaurant)currentRest).displayAllCustomerComments();
 
     }
 

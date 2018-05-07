@@ -7,6 +7,5 @@ public class Cashier extends Person {
     }
 
     public static void createOrder(){
-        Order.pay();
     }
 }

@@ -17,7 +17,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import sample.ExceptionClass;
+import com.compan.Manager;
 
 import java.util.ArrayList;
 
@@ -51,16 +51,12 @@ public class ThirdScene extends FirstScene {
         rest1List.add(bread);
         rest1List.add(wine);
 
-        //ISearchable casaMia = index1.findByName("Дон Вито");
-        //Item foood = new Food("na", 8);
-        //((Restaurant) casaMia).getList().add(foood);
-        //add Restaurants
-        Restaurant rest1 = new Restaurant("Дон Вито", Type.PIZZA, "http://pizzadonvito.com/bg/", "0889934934", "бул. Васил Левски, 34, София",  "Пица за душата от Италия", rest1List);
-        Restaurant rest2 = new Restaurant("Дон Вито–2", Type.PIZZA, "http://pizzadonvito.com/bg/", "0889934934", "ул. Христо Ботев 43, София",   "Пица за душата от Италия", rest1List);
-        Restaurant rest3 = new Restaurant("Casa Mia", Type.PIZZA, "http://casamia.com/bg/", "08834344934","бл 153, Младост 3, София",  "Твоята пицария в Младост ",rest1List );
-        Restaurant rest4 = new Restaurant("Die Alte Lampe", Type.PUB, "http://alteLampe.com/bg/", "0883435934", "бул Дондуков 42, София",  "Студена бира в гореща вечер",rest1List);
-        Restaurant rest5 = new Restaurant("Test", Type.CHINESE, "tets.bg", "3434523", "Lulin 10", "Test hrana za vkushti",rest1List);
-        Restaurant rest10 = new Restaurant("Casa de Lava", Type.PIZZA, "http://pizzadonvito.com/", "0889934934", "бул. Васил Левски, 34, София","Пица за душата от Италия",rest1List,4.5);
+        Restaurant rest1 = new Restaurant("Дон Вито", Type.PIZZA, "http://pizzadonvito.com/bg/", "0889934934", "бул. Васил Левски, 34, София",  "Пица за душата от Италия", new Manager("Васил Цветков", Gender.MALE));
+        Restaurant rest2 = new Restaurant("Дон Вито–2", Type.PIZZA, "http://pizzadonvito.com/bg/", "0889934934", "ул. Христо Ботев 43, София",   "Пица за душата от Италия", new Manager("Васил Цветков", Gender.MALE));
+        Restaurant rest3 = new Restaurant("Casa Mia", Type.PIZZA, "http://casamia.com/bg/", "08834344934","бл 153, Младост 3, София",  "Твоята пицария в Младост ", new Manager("Васил Цветков", Gender.MALE) );
+        Restaurant rest4 = new Restaurant("Die Alte Lampe", Type.PUB, "http://alteLampe.com/bg/", "0883435934", "бул Дондуков 42, София",  "Студена бира в гореща вечер",new Manager("Васил Цветков", Gender.MALE));
+        Restaurant rest5 = new Restaurant("Test", Type.CHINESE, "tets.bg", "3434523", "Lulin 10", "Test hrana za vkushti",new Manager("Васил Цветков", Gender.MALE));
+        Restaurant rest10 = new Restaurant("Casa de Lava", Type.PIZZA, "http://pizzadonvito.com/", "0889934934", "бул. Васил Левски, 34, София","Пица за душата от Италия",new Manager("Васил Цветков", Gender.MALE));
         index1.addToList(rest1);
         index1.addToList(rest2);
         index1.addToList(rest3);
@@ -92,8 +88,6 @@ public class ThirdScene extends FirstScene {
         rest1.getMenu().addToList(tarator);
 
 
-        cust1.evaluate(rest1, 8.4);
-        cust2.evaluate(rest1, 0.3);
 
 
         ArrayList<ISearchable> restaurantsOfType = index1.findByType(Type.valueOf(type));

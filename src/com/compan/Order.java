@@ -12,7 +12,7 @@ public class Order implements Serializable, IAddable {
     private static int counter;
     private long id;
     private Date date;
-    private ArrayList<Item> items; //all items ordered
+    private static ArrayList<Item> items; //all items ordered
     private double sum;
 
     private String restaurantName;
@@ -72,7 +72,7 @@ public class Order implements Serializable, IAddable {
         return status;
     }
 
-    public void addItem(Item item){
+    public static void addItem(Item item){
         items.add(item);
     }
 	

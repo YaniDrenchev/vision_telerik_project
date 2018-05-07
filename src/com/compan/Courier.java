@@ -7,6 +7,5 @@ public class Courier extends Person {
     }
 
     public static void createOrder(){
-        Order.pay();
     }
 }

@@ -1,13 +1,11 @@
 package sample;
 
 import domain.ISearchable;
-import domain.Index;
 import domain.Restaurant;
 import domain.food.Item;
 
-import java.awt.*;
-import java.math.BigDecimal;
-import java.math.RoundingMode;
+
+
 
 public class ExceptionClass2 extends FirstScene {
     private ISearchable rest;
@@ -26,7 +24,6 @@ public class ExceptionClass2 extends FirstScene {
         try {
             Item currentItem = (Item) ((Restaurant) rest).getMenu().findByName(input);
             double currentProductPrice = currentItem.getPrice();
-
             n = currentProductPrice;
 
         } catch (NullPointerException e) {

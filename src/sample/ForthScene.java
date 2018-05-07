@@ -50,8 +50,8 @@ public class ForthScene extends Main {
         nameInputProduct = new TextField();
         nameInputProduct.setPromptText("Restaurant Number");
         nameInputProduct.setMinWidth(100);
-        Customer cust5 = new Customer("Sokrat", Gender.MALE, "gre_pte");
-        cust5.writeAComment(((Restaurant) rest), "das");
+        Customer currentOrder = new Customer("Sokrat", Gender.MALE, "gre_pte");
+        currentOrder.writeAComment(((Restaurant) rest), "das");
         VBox vBox = new VBox();
         Button addButton = new Button("Add");
         Button billButton = new Button("Bill" + ": " + n + "0" + "lv");
