@@ -5,9 +5,12 @@ import domain.food.Item;
 
 public class Customer extends Person {
     private String username;
-
+    private Order order; 
+    
     public Customer(String name, Gender gender, String username) {
         super(name, gender);
+        this.order = new Order(); 
+        
         if (username.length() > 32 || username.length() < 3){
             System.out.println("Invalid username");
             // Ivaylo will show a window "Invalid username"
@@ -20,7 +23,7 @@ public class Customer extends Person {
     }
 
     public void order2(Item item){
-        Order.addItem(item);
+        order.addItem(item);
     }
 
     public void pay(Order order){
@@ -32,7 +35,7 @@ public class Customer extends Person {
     }
 
     public void evaluate(Restaurant rest, double rating){
-        if (Order.getStatus() == Status.FINISHED){
+        if (order.getStatus() == Status.FINISHED){
             rest.getEvaluationFromUser(rating);
         }else{
             //Open a window and tell the client that it is not possible to evaluate
