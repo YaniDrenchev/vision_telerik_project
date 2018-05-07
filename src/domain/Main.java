@@ -26,12 +26,23 @@ public class Main {
 		Restaurant rest2 = new Restaurant("Casa Mia", Type.BURGER, "http://casamia.com/bg/", "08834344934","бл 153, Младост 3, София",  "Твоята пицария в Младост " , new Manager("Лозан Иванов", Gender.MALE)); 
 		Restaurant rest3 = new Restaurant("Die Alte Lampe", Type.PUB, "http://alteLampe.com/bg/", "0883435934", "бул Дондуков 42, София",  "Студена бира в гореща вечер", new Manager("Яни Петров", Gender.MALE));
 		Restaurant rest4 = new Restaurant("При Китаеца", Type.CHINESE, "http://wu.bg", "3434523", "Люлин 3 бл 234", "Китайска храна за вкъщи", new Manager("Василена Илиева", Gender.FEMALE)); 
-		Restaurant rest5 = new Restaurant("Cafe Roma", Type.CAFETERIA, "http://pizzadonvito.com/", "0889934934", "бул. Васил Левски, 34, София","Пица за душата от Италия", new Manager("Илина Илиева", Gender.FEMALE) ); 
+		Restaurant rest5 = new Restaurant("Cafe Roma", Type.CAFETERIA, "http://pizzadonvito.com/", "0889934934", "бул. Васил Левски, 34, София","Кафе от Италия", new Manager("Веска Илиева", Gender.FEMALE) ); 
+		Restaurant rest6 = new Restaurant("При Ганди", Type.INDIAN, "http://indian.com/", "088344934", "бул. Ботев, 34, София","Индийска храна ", new Manager("Ива Илиева", Gender.FEMALE) ); 
+		Restaurant rest7 = new Restaurant("Златен дракон", Type.CHINESE, "http://goldenDragon.com/", "0869934934", "бул.Арсеналски, 54, София","Китайски специалитети", new Manager("Илина Зашева", Gender.FEMALE) ); 
+		Restaurant rest8 = new Restaurant("Mamma Mia", Type.PIZZA, "http://mamamia.com/", "0889934934", "бул. Надежда, София","Пица за душата от Италия", new Manager("Илина Петрова", Gender.FEMALE) ); 
+		Restaurant rest9 = new Restaurant("Tex Burger", Type.BURGER, "http://texburger.com/", "0889934934", "бул. Дианабад, 34, София","Сочни бургери ", new Manager("Светла Гошева", Gender.FEMALE) ); 
+		Restaurant rest10 = new Restaurant("Веселяци", Type.PUB, "http://happy-people.com/", "0889934934", " жк  Илинден, 34, София","Скара за душата ", new Manager("Илина Илиева", Gender.FEMALE) ); 
+		
 		index.addToList(rest1);	
 		index.addToList(rest2);
 		index.addToList(rest3);
 		index.addToList(rest4);
 		index.addToList(rest5);
+		index.addToList(rest6);
+		index.addToList(rest7);
+		index.addToList(rest8);
+		index.addToList(rest9);
+		index.addToList(rest10);
 		
 		//Show all  
 		index.displayAll();
@@ -394,22 +405,18 @@ public class Main {
 		rest1.getOrderFromCustomer(cust1, salad);
 		rest1.getOrderFromCustomer(cust1, mandja);
 		rest1.getOrderFromCustomer(cust1, vodka);
-		rest1.getOrderFromCustomer(cust1, steakFajitaPowerBowls);
-		rest1.getOrderFromCustomer(cust1, steakFajitaPowerBowls);
 		rest1.getOrderFromCustomer(cust1, primaveraCarbonara);
 		rest1.getOrderFromCustomer(cust1, BananaSplitKebabs);
 		
 		rest1.getOrderFromCustomer(cust2, vodka);
 		rest1.getOrderFromCustomer(cust2, onionSoupBreadBowls);
-		rest1.getOrderFromCustomer(cust2, slowCookerBrisket);
 		rest1.getOrderFromCustomer(cust2, creamyTuscanChicken);
 		rest1.getOrderFromCustomer(cust2, veganPizza);
 		
-		rest1.getOrderFromCustomer(cust3, steakFajitaPowerBowls);
 		rest1.getOrderFromCustomer(cust3, vodka);
 		
-		rest1.getOrderFromCustomer(cust4, steakFajitaPowerBowls);
-		rest1.getOrderFromCustomer(cust5, steakFajitaPowerBowls);
+		rest1.getOrderFromCustomer(cust4, primaveraCarbonara);
+		rest1.getOrderFromCustomer(cust5, PinaColadaSangria);
 
 		//System.out.println(rest1.getOrderManager().getCurrentOrders()); 
 		
