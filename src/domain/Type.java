@@ -11,3 +11,5 @@ public enum Type {
 	PUB, 
 	CAFETERIA 
 }
+
+// All types of restaurants in our app

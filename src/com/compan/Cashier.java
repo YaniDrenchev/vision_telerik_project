@@ -6,6 +6,6 @@ public class Cashier extends Person {
         super(name, gender);
     }
 
-    public static void createOrder(){
+    public  void createOrder(){
     }
 }

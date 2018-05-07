@@ -1,7 +1,10 @@
 package domain;
 
+import com.compan.Chef;
 import com.compan.Customer;
+import com.compan.Gender;
 import com.compan.Manager;
+import com.compan.Waiter;
 
 import domain.food.Item;
 
@@ -21,6 +24,8 @@ public class Restaurant implements ISearchable, IAddable, Comparable<Restaurant>
 	private OrderManager orderManager; 
 	private RatingsManager ratingsManager; 
 	private CommentsManager commentsManager; 
+	private Waiter waiter ; 
+	private Chef chef; 
 	
 	public Restaurant() {
 		super();
@@ -35,29 +40,16 @@ public class Restaurant implements ISearchable, IAddable, Comparable<Restaurant>
 		this.description = description;
 		this.address = address; 
 		this.id = ++counter + 100; 
+		this.manager = manager; 
 		this.menu = new Menu(); 
 		this.orderManager = new OrderManager();
 		this.commentsManager = new CommentsManager(); 
 		this.ratingsManager = new RatingsManager();
-		this.rating = ratingsManager.getRating(); 
+		this.rating = ratingsManager.getRating();
+		this.waiter = new Waiter("Generic", Gender.MALE, this); 
+		this.chef = new Chef("Generic", Gender.FEMALE, this); 
 	}
 	
-	//same as above but with predefined rating, as if the restaurant has existed already , done for demonstration purposes
-//	public Restaurant(String name, Type type, String webSite, String phone, String address,  String description, Double rating) {
-//		super();
-//		this.name = name;
-//		this.type = type;
-//		this.webSite = webSite;
-//		this.phone = phone;
-//		this.rating = rating; 
-//		this.description = description;
-//		this.address = address; 
-//		this.id = ++counter + 1000; 
-//		this.commentsManager = new CommentsManager(); 
-//		this.menu = new Menu(); 
-//		this.orderManager = new OrderManager(); 
-//		this.ratingsManager = new RatingsManager(); 
-//	}
 
 	public int getId() {
 		return id;
@@ -161,12 +153,6 @@ public class Restaurant implements ISearchable, IAddable, Comparable<Restaurant>
 		commentsManager.addToList(comment);
 	}
 	
- 
-//	public void getCommentFromCustomer(String commentContent, String username) {
-//		Comment comment = new Comment( username, commentContent);
-//		commentsManager.addToList(comment);
-//	}
-	
 	public void displayAllCustomerComments(){
 		commentsManager.displayAll();
 	} 
@@ -180,6 +166,10 @@ public class Restaurant implements ISearchable, IAddable, Comparable<Restaurant>
 	}
 	
 	public void getOrderFromCustomer(Customer customer, Item item){
+		waiter.takeOrder(item);
+		waiter.giveOrderToChef(item, chef);
+		chef.cook(item, waiter);
+		
 		orderManager.processOrder(this, customer, item);
 	}
 	

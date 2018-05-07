@@ -1,12 +1,10 @@
 package com.compan;
 
-import java.io.Serializable;
-
 import domain.Restaurant;
 import domain.Type;
 
-public class Manager extends Person implements Serializable {
-
+public class Manager extends Person {
+	
     public Manager(String name, Gender gender) {
         super(name, gender);
     }
@@ -15,7 +13,7 @@ public class Manager extends Person implements Serializable {
     	return new Restaurant(name, type, webSite, phone, address, description, manager) ; 
     }
     
-    public static String getName(){
-        return name;
+    public String getName(){
+        return super.getName();
     }
 }

@@ -18,8 +18,8 @@ public class Customer extends Person {
             this.username = username;
         }
     }
-    public void order1(Item item){
-        Weiter.takeOrder(item);
+    public void order1(Item item, Waiter waiter){
+        waiter.takeOrder(item);
     }
 
     public void order2(Item item){

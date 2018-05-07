@@ -6,6 +6,6 @@ public class Courier extends Person {
         super(name, gender);
     }
 
-    public static void createOrder(){
+    public  void createOrder(){
     }
 }

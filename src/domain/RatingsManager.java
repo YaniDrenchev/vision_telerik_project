@@ -14,7 +14,7 @@ public class RatingsManager {
 		generateRating();   
 	}
 	
-	//for demo purposes only, It is boring to start witх rests with 0.0 rating each
+	//for demo purposes only, It is boring to start with restaurants with 0.0 rating each
 	 private void generateRating() {
 		Random ran = new Random();
 		for (int i = 0; i <= 12; i++) {

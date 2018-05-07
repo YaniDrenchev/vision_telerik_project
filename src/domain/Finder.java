@@ -6,6 +6,7 @@ import java.util.List;
 import domain.Type;
 
 public abstract class Finder {
+		
 		protected List<ISearchable> list ; 
 		
 		public abstract void displayAll(); 

@@ -21,9 +21,10 @@ public class OrderManager  {
 	}
 	
 	public void processOrder(Restaurant restaurant , Customer customer, Item item){
+		System.out.println(restaurant.getManager());
 		Order order = new Order(restaurant, restaurant.getManager()); 
 		if(orderExists(customer.getUsername())) {
-			currentOrders.get(customer.getUsername()).addItem(item);;
+			currentOrders.get(customer.getUsername()).addItem(item);
 		} else {
 			order.addItem(item);
 			currentOrders.put(customer.getUsername(), order);
@@ -55,9 +56,11 @@ public class OrderManager  {
 	
 	public ArrayList<Order> getOrdersByCustomer(String userName){
 		ArrayList<Order> ordersByName = new ArrayList<>(); 
-		for (Entry<String, Order> name : currentOrders.entrySet()) {
-		    if(name.getKey().equals(userName)){
-		    	ordersByName.add((Order) currentOrders.entrySet()); 
+		for (Entry<String, Order> element : currentOrders.entrySet()) {
+		    if(element.getKey().equals(userName)){
+		    	//System.out.println(element.getValue());
+		    	ordersByName.add( element.getValue()); 
+		    	//ordersByName.add((Order) currentOrders.values()); 
 		    }
 		}
 		return ordersByName; 

@@ -36,11 +36,11 @@ public class Index  implements ICRUD, IFind{
 		restaurants.remove(indexToDelete); 
 	}
 	
-	// Finder
-	////TODO add exceptions
+
 	public void displayAll(){
 		for (ISearchable restaurant : restaurants) {
-			System.out.println( ((Restaurant) restaurant).getId() + " " + ((Restaurant) restaurant).getName() );
+			System.out.println( ((Restaurant) restaurant).getId() + " " + ((Restaurant) restaurant).getName() + "  " + 
+					((Restaurant) restaurant).getType());
 		}
 	}
 	
@@ -56,7 +56,7 @@ public class Index  implements ICRUD, IFind{
 	}
 	
 	//TODO add exceptions
-	public ISearchable findByName(String name){
+	public ISearchable findByName(String name) throws Exception{
 		Restaurant found = new Restaurant(); 
 		for (ISearchable restaurant : restaurants){
 			if(((Restaurant) restaurant).getName().equals(name)){
