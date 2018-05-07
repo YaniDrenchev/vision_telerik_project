@@ -166,11 +166,15 @@ public class Restaurant implements ISearchable, IAddable, Comparable<Restaurant>
 	}
 	
 	public void getOrderFromCustomer(Customer customer, Item item){
-		waiter.takeOrder(item);
-		waiter.giveOrderToChef(item, chef);
-		chef.cook(item, waiter);
+		if(menu.isOnTheMenu(item)) {
+			waiter.takeOrder(item);
+			waiter.giveOrderToChef(item, chef);
+			chef.cook(item, waiter);
+			orderManager.processOrder(this, customer, item);
+		}else {
+			System.out.println(item.getName() + " is not on our menu.");
+		}
 		
-		orderManager.processOrder(this, customer, item);
 	}
 	
 	@Override

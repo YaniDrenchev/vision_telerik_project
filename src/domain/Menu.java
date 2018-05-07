@@ -15,6 +15,16 @@ public class Menu implements ICRUD {
 		this.currency = "lv";
 	}
 	
+	public boolean isOnTheMenu(Item item){
+		for (IAddable itemN : menu) {
+	 		Item itemFromMenu = (Item) itemN ;
+	 		if(itemFromMenu.getId() == item.getId()){
+	 			return true; 	
+	 		}
+		}
+		return false; 
+	}
+	
 	public void displayAllToCustomers() {
 		int i = 0;
 		for (IAddable itemN : menu) {

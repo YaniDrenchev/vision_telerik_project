@@ -1,6 +1,7 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map.Entry;
 import com.compan.Customer;
@@ -21,7 +22,8 @@ public class OrderManager  {
 	}
 	
 	public void processOrder(Restaurant restaurant , Customer customer, Item item){
-		System.out.println(restaurant.getManager());
+		//System.out.println(restaurant.getManager());
+		
 		Order order = new Order(restaurant, restaurant.getManager()); 
 		if(orderExists(customer.getUsername())) {
 			currentOrders.get(customer.getUsername()).addItem(item);
@@ -89,18 +91,24 @@ public class OrderManager  {
 		return order ; 
 	}
 	
-	
-	public void sortOrdersByMaxTotal(){
-		//find the customer
+	public ArrayList<Order> sortOrdersByMaxTotal(){
+		ArrayList<Order> sorted = new ArrayList<>(); 
+		for (Entry<String, Order> element : currentOrders.entrySet()) {
+		    	sorted.add( element.getValue()); 
+		}
+		 Collections.sort(sorted);
+		 return sorted; 
 	}
 	
-	// ??? 
-	public void sortOrdersByTypeFood(){
+	//TODO
+//	public ArrayList<Customer> sortOrdersByMostSpendingCustomers(){
+//	
+//	}	
+		
+	public void sortOrdersByMostFrequentlyBoughtFood(){
 		//find the customer
 	}
 	//find the customer with the most orders
-
-	
 	
 	//find orders by day , on which days we have the most orders
 }

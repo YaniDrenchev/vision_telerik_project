@@ -350,20 +350,6 @@ public class Main {
 		System.out.println("----- Get Rating of rest1 ----");
 		System.out.println("Rating of " + rest1.getName() + "  " + rest1.getRating());
 		
-		//search
-		//find by name: 
-		System.out.println("---- Find by name: Дон Вито–2 ---- ");
-		ISearchable casaMia;
-		
-		//search with a non existing name : 
-//		try {
-//			casaMia = index.findByName("Дон Вито–2");
-//			System.out.println(((Restaurant) casaMia).getId() + " " + ((Restaurant) casaMia).getName() + "  " + ((Restaurant) casaMia).getRating());
-//		} catch (Exception e) {
-//			System.out.println("Exception");
-//			e.printStackTrace();
-//		} 
-		
 		//find by Id:
 		System.out.println("---- Find by id: 101 ---- ");
 		Restaurant idRest = (Restaurant) index.findById(101); 
@@ -404,17 +390,27 @@ public class Main {
 		System.out.println(order1.getRestaurant().getName());
 		System.out.println(order1);
 		
-		//save to archive 
-//		rest1.getOrderManager().saveToArchive(order1);
-//		Order ordR = rest1.getOrderManager().findByIdFromArchive(1001); 
-//		System.out.println( order1.getSum()); 
-		
 		//restaurants get the order 
 		rest1.getOrderFromCustomer(cust1, salad);
 		rest1.getOrderFromCustomer(cust1, mandja);
 		rest1.getOrderFromCustomer(cust1, vodka);
+		rest1.getOrderFromCustomer(cust1, steakFajitaPowerBowls);
+		rest1.getOrderFromCustomer(cust1, steakFajitaPowerBowls);
+		rest1.getOrderFromCustomer(cust1, primaveraCarbonara);
+		rest1.getOrderFromCustomer(cust1, BananaSplitKebabs);
+		
 		rest1.getOrderFromCustomer(cust2, vodka);
-		rest1.getOrderFromCustomer(cust3, juice);
+		rest1.getOrderFromCustomer(cust2, onionSoupBreadBowls);
+		rest1.getOrderFromCustomer(cust2, slowCookerBrisket);
+		rest1.getOrderFromCustomer(cust2, creamyTuscanChicken);
+		rest1.getOrderFromCustomer(cust2, veganPizza);
+		
+		rest1.getOrderFromCustomer(cust3, steakFajitaPowerBowls);
+		rest1.getOrderFromCustomer(cust3, vodka);
+		
+		rest1.getOrderFromCustomer(cust4, steakFajitaPowerBowls);
+		rest1.getOrderFromCustomer(cust5, steakFajitaPowerBowls);
+
 		//System.out.println(rest1.getOrderManager().getCurrentOrders()); 
 		
 		//rest1.getOrderManager().sendFinishedOrdersToArchive();
@@ -430,8 +426,13 @@ public class Main {
 			}
 			System.out.println("Total: " + ord.getSum());
 		}
+		System.out.println("---------Sort orders by max total: --------");
+		ArrayList<Order> sortedByMaxTotal = rest1.getOrderManager().sortOrdersByMaxTotal(); 
+		for (Order order : sortedByMaxTotal) {
+			System.out.println( "id: " +  order.getId()  + " " +  order.getSum()  );
+		}
 		
-			
+		
 //		System.out.println("------- Show retrieved order from archive ------");
 //		System.out.println(ordR.getRestaurant().getName());
 //		

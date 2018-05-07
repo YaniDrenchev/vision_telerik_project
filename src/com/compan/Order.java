@@ -8,7 +8,7 @@
 	import domain.Restaurant;
 	import domain.food.Item;
 	
-	public class Order implements Serializable, IAddable {
+	public class Order implements Serializable, IAddable, Comparable<Order> {
 	    private static int counter;
 	    private long id;
 	    private Date date;
@@ -53,7 +53,7 @@
 	    	for (Item item : items) {
 	    		total += item.getPrice(); 
 			}
-	    	this.sum = total;
+	    	this.sum = (double) Math.round(total * 100) / 100;;
 	    }
 	
 	    public Status getStatus() {
@@ -106,5 +106,16 @@
 			return "Order [id=" + id + ", date=" + date + ", sum=" + sum + ", restaurantName=" + restaurantName
 					+ ", managerName=" + managerName + ", address=" + address + ", restaurant=" + restaurant + ", manager="
 					+ manager + "]";
+		}
+
+		@Override
+		public int compareTo(Order order) {
+			if( getSum() == order.getSum()){
+				return 0; 
+			}else if(getSum() == order.getSum()){
+				return -1;
+			}else {
+				return 1; 
+			}	
 		}
 	}
