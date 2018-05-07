@@ -431,7 +431,6 @@ public class Main {
 			System.out.println("Total: " + ord.getSum());
 		}
 		
-		
 			
 //		System.out.println("------- Show retrieved order from archive ------");
 //		System.out.println(ordR.getRestaurant().getName());
