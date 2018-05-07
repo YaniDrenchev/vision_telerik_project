@@ -112,7 +112,7 @@
 		public int compareTo(Order order) {
 			if( getSum() == order.getSum()){
 				return 0; 
-			}else if(getSum() == order.getSum()){
+			}else if(getSum() > order.getSum()){
 				return -1;
 			}else {
 				return 1; 

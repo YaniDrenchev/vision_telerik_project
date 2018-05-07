@@ -389,9 +389,9 @@ public class Main {
 		System.out.println(rest1.getRating());
 		
 		//delete by id :
-		index.deleteFromList(101);
-		System.out.println("----After deletion of 101:  ---- ");
-		index.displayAll(); 
+//		index.deleteFromList(101);
+//		System.out.println("----After deletion of 101:  ---- ");
+//		index.displayAll(); 
 		
 		//order test
 		Manager mngr = new Manager("Ivanov", Gender.MALE); 
@@ -401,20 +401,17 @@ public class Main {
 		System.out.println(order1.getRestaurant().getName());
 		System.out.println(order1);
 		
-		//restaurants get the order 
+		//restaurants get orders from clients 
 		rest1.getOrderFromCustomer(cust1, salad);
 		rest1.getOrderFromCustomer(cust1, mandja);
 		rest1.getOrderFromCustomer(cust1, vodka);
 		rest1.getOrderFromCustomer(cust1, primaveraCarbonara);
 		rest1.getOrderFromCustomer(cust1, BananaSplitKebabs);
-		
 		rest1.getOrderFromCustomer(cust2, vodka);
 		rest1.getOrderFromCustomer(cust2, onionSoupBreadBowls);
 		rest1.getOrderFromCustomer(cust2, creamyTuscanChicken);
 		rest1.getOrderFromCustomer(cust2, veganPizza);
-		
 		rest1.getOrderFromCustomer(cust3, vodka);
-		
 		rest1.getOrderFromCustomer(cust4, primaveraCarbonara);
 		rest1.getOrderFromCustomer(cust5, PinaColadaSangria);
 
@@ -439,10 +436,8 @@ public class Main {
 			System.out.println( "id: " +  order.getId()  + " " +  order.getSum()  );
 		}
 		
-		
 //		System.out.println("------- Show retrieved order from archive ------");
 //		System.out.println(ordR.getRestaurant().getName());
-//		
 //		
 //		cust1.evaluate(rest1, 3.2);
 //		cust2.evaluate(rest1, 0.3);
@@ -459,21 +454,6 @@ public class Main {
 //		//Food 
 //		System.out.println();
 //		System.out.println("------   MENU -------");
-//		
-//		
-//	    
-//	    System.out.println("Name: " + mandja.getName() + " \nDescribe: " + mandja.getDescription() + " id:" + mandja.getId());
-//	    System.out.println("Name: " + water.getName() + " \nDescribe: " + water.getDescription() + " id:" + water.getId());
-//	    
-//	 // add food to Menu
-//		
-//		//Menu menuRest1 = rest1.getMenu(); 
-//		System.out.println("----Show the menu of : " + rest1.getName() +  " ---- ");
-//		rest1.getMenu().displayAll();
-//		System.out.println();
-//		System.out.println("------Delete by Id : 1 --------");
-//		rest1.getMenu().deleteFromList(1);;
-//		
 //		rest1.getMenu().displayAll();
 //		System.out.println("----Show the menu of to customers: " + rest1.getName() +  " ---- ");
 //		rest1.getMenu().displayAllToCustomers();
@@ -520,6 +500,5 @@ public class Main {
 //			System.out.println(comment.getTimestamp() + "  " + comment.getAuthorName() + ":  " + comment.getContent());
 //		}
 //		System.out.println();
-		
 	}
 }
