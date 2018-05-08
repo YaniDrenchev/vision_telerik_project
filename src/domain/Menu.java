@@ -99,7 +99,7 @@ public class Menu implements ICRUD {
 	public IAddable findByName(String name) {
         for (IAddable itemN : menu){
             Item item = (Item) itemN;
-            if(item.getName().equals(name) ){
+            if(item.getName().equalsIgnoreCase(name) ){
                 return item;
             }
         }

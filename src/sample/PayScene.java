@@ -106,6 +106,7 @@ public class PayScene extends FirstScene {
     }
 
     public static void rankButton(ISearchable currentRest) {
-        customerNew.evaluate((Restaurant) currentRest, Double.parseDouble(rankInput.getText()));
+        InvalidRankCustomException check = new InvalidRankCustomException();
+        check.getException(rankInput.getText(),customerNew,currentRest);
     }
 }
