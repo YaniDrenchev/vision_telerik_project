@@ -1,4 +1,5 @@
 package sample;
+import domain.Index;
 import javafx.animation.PauseTransition;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -13,6 +14,7 @@ public class SecondScene extends FirstScene {
     private static ImageView CHINESE,PIZZA,INDIAN,SUSHI,CAFETERIA,PUB;
     private static String payMessage1;
     private static String customerManager;
+    private static Index index1 = null;
     public static void display1(String payMessage,String customerOrManager) {
         Stage window = new Stage();
         window.setTitle("thevision");
@@ -125,6 +127,8 @@ public class SecondScene extends FirstScene {
         //if SecondScene has been opened from FirstSceneManager it uses String="Manager" else customer.
         if (customerManager.equals("Manager")){
             SecondSceneManager.display(current.getId());
+            Stage window1 = (Stage) current.getScene().getWindow();
+            window1.close();
 
         }else{
         ThirdScene.display2(current.getId(),payMessage1,payMessage1);
